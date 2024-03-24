@@ -52,7 +52,7 @@
                         stmt = c.createStatement();
                         PreparedStatement ps = c.prepareStatement("SELECT n.*,d.*,p.per_foto,u.usu_nombre FROM Direccion d INNER JOIN "
                                 + "Negocio n ON n.dir_id=d.dir_id INNER JOIN Persona p ON n.per_id = p.per_id INNER JOIN Usuario u ON"
-                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre ILIKE ?");
+                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre LIKE ?");
                         ps.setString(1, "%" + bs + "%");
                         rs = ps.executeQuery();
                         if (rs != null)
@@ -110,7 +110,7 @@
                     %>
 
                     <%
-                        PreparedStatement ps2 = c.prepareStatement("SELECT p.per_foto, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE usu_nombre ILIKE ?");
+                        PreparedStatement ps2 = c.prepareStatement("SELECT p.per_foto, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE usu_nombre LIKE ?");
                         ps2.setString(1, "%" + bs + "%");
                         rs2 = ps2.executeQuery();
                         if (rs2 != null)
@@ -166,7 +166,7 @@
                     %>
 
                     <%
-                        PreparedStatement ps3 = c.prepareStatement("SELECT * FROM Producto WHERE pro_nombre ILIKE ?");
+                        PreparedStatement ps3 = c.prepareStatement("SELECT * FROM Producto WHERE pro_nombre LIKE ?");
                         ps3.setString(1, "%" + bs + "%");
                         rs3 = ps3.executeQuery();
                         if (rs3 != null)

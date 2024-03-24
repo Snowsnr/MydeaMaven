@@ -425,6 +425,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     border: 0.1px solid white;
 }
 .Mostrar_Productos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 90%;
     width: 100%;
     border: 3px solid black;
@@ -480,8 +483,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     padding: 5px;
     flex: 0 0 auto;
     margin-right: 25px;
-    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.7);
     cursor: pointer;
+    position: relative;
 }
 .card_pro_most .card-body {
     padding: 0.7% 0px 2% 0px;
@@ -494,7 +498,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .card_pro_most:hover {
     transition: 0.3s;
-    background-color: #f58b4f;
+    background-color: rgba(0,0,0,0.9);
     color: white;
 }
 .card_pro_most:hover .pr_inf_n span:last-child{
@@ -502,16 +506,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     border: 3px solid white;
     color: black;
 }
-.card_pro_most:hover .tt_pro_most{
-    background: white;
-    color: black;
-}
 .img_most {
-    height: 50%;
-    border-radius: 0px;
+    height: 90%;
+    border-radius: 10px;
 }
 .tt_pro_most {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-weight: bolder;
     margin: 0px;
     width: 100%;
@@ -519,8 +519,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f58b4f;
-    color: white;
     margin-bottom: 1%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -1347,4 +1345,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 #nav_sc{
     width: 30%;
+}
+#card_pro_neg{
+    height: 250px;
 }

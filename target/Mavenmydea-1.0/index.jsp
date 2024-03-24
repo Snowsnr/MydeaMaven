@@ -158,7 +158,7 @@
                 </section>
             </section>
         </div>
-        
+
         <div class="information_index_mobile justify-content-around">
             <section class="card_info_in_mobile card_qs d-flex justify-content-between">
                 <section class="d-flex flex-column text-white text_qs_card p-2 justify-content-evenly align-items-center Inria">
@@ -184,7 +184,7 @@
             <div class="slid_neg d-flex flex-column">
                 <span class="w-100">Los Mejores Negocios</span>
                 <span class="texto">Encuentra y apoya a los mejores negocios de nuestra comunidad en un solo lugar.
-                      Descubre joyas ocultas y favoritos de la comunidad, cuidadosamente seleccionados por su calidad, servicio excepcional o propuestas únicas. Disfruta de experiencias gastronómicas y servicios que sobresalen, avalados por la satisfacción de sus clientes.
+                    Descubre joyas ocultas y favoritos de la comunidad, cuidadosamente seleccionados por su calidad, servicio excepcional o propuestas únicas. Disfruta de experiencias gastronómicas y servicios que sobresalen, avalados por la satisfacción de sus clientes.
                 </span>
                 <button id="prev_lmn" class="btn prev"><i class="bi bi-caret-left"></i></button>
                 <button id="next_lmn" class="btn next"><i class="bi bi-caret-right"></i></button>
@@ -269,19 +269,13 @@
                 %>
 
                 <section class="card_pro_most card_pro_most_active">
-                    <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
-                    <img src="<%=pi%>" class="card-img-top img_most" alt="..." id="card-img-top">
-                    <div class="card-body d-flex flex-column">
-                        <div class="d-flex w-100 justify-content-center align-items-lg-center pr_inf_n">
-                            <span class="pre_sl d-flex justify-content-center">$<div class="pre_most_pro" id="pre_most_pro"><%=pre%>
-                                </div>
-                            </span>
-
+                    <span class="pre_sl">$<div class="pre_most_pro" id="pre_most_pro"><%=pre%>
                         </div>
-                        <span class="card-text" id="desc_com_pro"><%=pd%></span>
-                    </div>
+                    </span>
+                    <img src="<%=pi%>" class="card-img-top img_most" alt="..." id="card-img-top">
                     <input type="text" class="dis_most_pro" value="<%=dis%>" disabled>
-
+                    <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
+                    <span class="card-text dis_most_pro" id="desc_com_pro"><%=pd%></span>
                 </section>
                 <%
                     }

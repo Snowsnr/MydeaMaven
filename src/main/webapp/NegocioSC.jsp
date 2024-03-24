@@ -42,15 +42,18 @@
             c = con.getCon();
             stmt = c.createStatement();
 
-            if (request.getAttribute("neid") != null) {
+            if (request.getAttribute("neid") != null)
+            {
 
                 rs = stmt.executeQuery("select n.*, u.usu_nombre, p.per_foto, p.per_correo from Negocio n inner join Persona p on p.per_id=n.per_id"
-                + " inner join Usuario u on p.usu_id=u.usu_id where n.neg_id=" + request.getAttribute("neid") + ";");
-            } else {
+                        + " inner join Usuario u on p.usu_id=u.usu_id where n.neg_id=" + request.getAttribute("neid") + ";");
+            } else
+            {
                 rs = stmt.executeQuery("select n.*, u.usu_nombre, p.per_foto, p.per_correo from Negocio n inner join Persona p on p.per_id=n.per_id"
-                + " inner join Usuario u on p.usu_id=u.usu_id where n.neg_id=" + id + ";");
+                        + " inner join Usuario u on p.usu_id=u.usu_id where n.neg_id=" + id + ";");
             }
-            while (rs.next()) {
+            while (rs.next())
+            {
                 logo = rs.getString("neg_logo");
                 nombre = rs.getString("neg_nombre");
                 desc = rs.getString("neg_descripcion");
@@ -77,7 +80,8 @@
             String[] Especial = new String[7];
 
             int a = 0;
-            while (rs2.next()) {
+            while (rs2.next())
+            {
 
                 Abierto[a] = rs2.getString("hor_abierto");
                 Cerrado[a] = rs2.getString("hor_cerrado");
@@ -89,14 +93,16 @@
 
             ResultSet rs4 = stmt.executeQuery("Select n.neg_id, p.per_id from Negocio n inner Join Persona p on p.per_id=n.per_id where p.per_correo='" + correop + "';");
             int num = 0;
-            while (rs4.next()) {
+            while (rs4.next())
+            {
                 num = num + 1;
                 pid = rs4.getInt("per_id");
             }
 
             ResultSet rs5 = stmt.executeQuery("Select * from Feedback where neg_id=" + neid + ";");
             int num2 = 0;
-            while (rs5.next()) {
+            while (rs5.next())
+            {
                 num2 = num2 + 1;
 
             }
@@ -106,7 +112,8 @@
             ResultSet rs8 = stmt.executeQuery("select d.*, n.*, p.usu_id, u.usu_nombre from Direccion d inner join Negocio n on d.dir_id=n.dir_id"
                     + " inner join Persona p on n.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id where n.neg_id=" + neid + ";");
 
-            while (rs8.next()) {
+            while (rs8.next())
+            {
                 String colonia = rs8.getString("dir_colonia");
                 String calle = rs8.getString("dir_calle");
                 int numero = rs8.getInt("dir_numero");
@@ -119,7 +126,8 @@
 
             int lk = 0;
 
-            while (rm.next()) {
+            while (rm.next())
+            {
                 lk = lk + 1;
             }
 
@@ -239,11 +247,13 @@
                                                         <section class="d-flex flex-column">
                                                             <span>Lunes:</span>
                                                             <%
-                                                                if (Abierto[0].equals("No")) {
+                                                                if (Abierto[0].equals("No"))
+                                                                {
                                                             %>
                                                             <span><%=Especial[0]%></span>
                                                             <%
-                                                            } else {
+                                                            } else
+                                                            {
                                                             %>
                                                             <span><%=Abierto[0]%> - <%=Cerrado[0]%></span>
 
@@ -259,11 +269,13 @@
                                                         <section class="d-flex flex-column">
                                                             <span>Martes:</span>
                                                             <%
-                                                                if (Abierto[1].equals("No")) {
+                                                                if (Abierto[1].equals("No"))
+                                                                {
                                                             %>
                                                             <span><%=Especial[1]%></span>
                                                             <%
-                                                            } else {
+                                                            } else
+                                                            {
                                                             %>
                                                             <span><%=Abierto[1]%> - <%=Cerrado[1]%></span>
 
@@ -279,11 +291,13 @@
                                                         <section class="d-flex flex-column">
                                                             <span>Miércoles:</span>
                                                             <%
-                                                                if (Abierto[2].equals("No")) {
+                                                                if (Abierto[2].equals("No"))
+                                                                {
                                                             %>
                                                             <span><%=Especial[2]%></span>
                                                             <%
-                                                            } else {
+                                                            } else
+                                                            {
                                                             %>
                                                             <span><%=Abierto[2]%> - <%=Cerrado[2]%></span>
 
@@ -299,11 +313,13 @@
                                                         <section class="d-flex flex-column">
                                                             <span>Jueves:</span>
                                                             <%
-                                                                if (Abierto[3].equals("No")) {
+                                                                if (Abierto[3].equals("No"))
+                                                                {
                                                             %>
                                                             <span><%=Especial[3]%></span>
                                                             <%
-                                                            } else {
+                                                            } else
+                                                            {
                                                             %>
                                                             <span><%=Abierto[3]%> - <%=Cerrado[3]%></span>
 
@@ -319,11 +335,13 @@
                                                         <section class="d-flex flex-column">
                                                             <span>Viernes:</span>
                                                             <%
-                                                                if (Abierto[4].equals("No")) {
+                                                                if (Abierto[4].equals("No"))
+                                                                {
                                                             %>
                                                             <span><%=Especial[4]%></span>
                                                             <%
-                                                            } else {
+                                                            } else
+                                                            {
                                                             %>
                                                             <span><%=Abierto[4]%> - <%=Cerrado[4]%></span>
 
@@ -339,11 +357,13 @@
                                                         <section class="d-flex flex-column">
                                                             <span>Sábado:</span>
                                                             <%
-                                                                if (Abierto[5].equals("No")) {
+                                                                if (Abierto[5].equals("No"))
+                                                                {
                                                             %>
                                                             <span><%=Especial[5]%></span>
                                                             <%
-                                                            } else {
+                                                            } else
+                                                            {
                                                             %>
                                                             <span><%=Abierto[5]%> - <%=Cerrado[5]%></span>
 
@@ -359,11 +379,13 @@
                                                         <section class="d-flex flex-column">
                                                             <span>Domingo:</span>
                                                             <%
-                                                                if (Abierto[6].equals("No")) {
+                                                                if (Abierto[6].equals("No"))
+                                                                {
                                                             %>
                                                             <span><%=Especial[6]%></span>
                                                             <%
-                                                            } else {
+                                                            } else
+                                                            {
                                                             %>
                                                             <span><%=Abierto[6]%> - <%=Cerrado[6]%></span>
 
@@ -435,8 +457,10 @@
                                        data-bs-placement="bottom" data-bs-title="<%=correo%>"></i>
 
                                     <%
-                                        if (fb.equals("")) {
-                                        } else {
+                                        if (fb.equals(""))
+                                        {
+                                        } else
+                                        {
 
                                     %>
                                     <a href="<%=fb%>" class="contact_red_cu"><i
@@ -445,8 +469,10 @@
                                         <%
                                             }
 
-                                            if (ig.equals("")) {
-                                            } else {
+                                            if (ig.equals(""))
+                                            {
+                                            } else
+                                            {
                                         %>
                                     <a href="<%=ig%>" class="contact_red_cu"><i
                                             class="bi bi-instagram contact_red_cu" data-bs-toggle="tooltip"
@@ -454,8 +480,10 @@
                                         <%
                                             }
 
-                                            if (tw.equals("")) {
-                                            } else {
+                                            if (tw.equals(""))
+                                            {
+                                            } else
+                                            {
                                         %>                               
                                     <a href="<%=tw%>" class="contact_red_cu"><i
                                             class="bi bi-twitter contact_red_cu" data-bs-toggle="tooltip"
@@ -463,8 +491,10 @@
                                         <%
                                             }
 
-                                            if (web.equals("")) {
-                                            } else {
+                                            if (web.equals(""))
+                                            {
+                                            } else
+                                            {
                                         %>  
                                     <a href="<%=web%>" class="contact_red_cu"><i
                                             class="bi bi-globe2 contact_red_cu" data-bs-toggle="tooltip"
@@ -486,20 +516,16 @@
                                 <img src="<%=logo%>" alt="" id="img_L_pr">
                                 <button type="button" class="btn btn_sp btn_active btn_general"
                                         id="general_most">General</button>
-                                <button type="button" class="btn btn_sp sp_div_n_desactive" id="precios_most">Mejores
-                                    Precios</button>
-                                <button type="button" class="btn btn_sp sp_div_n_desactive" id="calif_most">Mejores
-                                    Calificados</button>
-                                <button type="button" class="btn btn_sp sp_div_n_desactive">Nuevos Productos</button>
-                                <button type="button" class="btn btn_sp sp_div_n_desactive">Productos Antiguos</button>
-                                <button type="button" class="btn btn_sp sp_div_n_desactive" id="comen_most">Más
-                                    Comentados</button>
+                                <button type="button" class="btn btn_sp sp_div_n_desactive" id="precios_most_mn">Menor a Mayor Precio</button>
+                                <button type="button" class="btn btn_sp sp_div_n_desactive" id="precios_most_nm">Mayor a Menor Precio</button>
+                                <button type="button" class="btn btn_sp sp_div_n_desactive" id="pro_most_nue">Nuevos Productos</button>
+                                <button type="button" class="btn btn_sp sp_div_n_desactive" id="pro_most_ant">Productos Antiguos</button>
                                 <select class="select_sp" id="select_sp">
                                     <option selected disabled hidden>Disponibilidad</option>
                                     <option value="Disponible en todo momento">Disponible en todo momento</option>
-                                    <option value="Por pedido">Por pedido</option>
+                                    <option value="Por Pedido">Por pedido</option>
                                     <option value="Mayoreo">Mayoreo</option>
-                                    <option value="Solo por unidad">Solo por unidad</option>
+                                    <option value="Solo por Unidad">Solo por unidad</option>
                                     <option value="Disponible por un tiempo">Disponible por un tiempo</option>
                                     <option value="Proximamente">Próximamente</option>
                                     <option value="General">General</option>
@@ -510,7 +536,7 @@
                                     <input type="text" class="form-control" placeholder="Buscar un producto específico" id="Busq_Pro_inp_n">
                                 </section>
 
-                                <section class="Mostrar_Productos d-flex flex-column justify-content-between">
+                                <section class="Mostrar_Productos">
                                     <span class="Mostrar_Productos_busq">Mostrar Productos: "<span
                                             id="Busqueda_pro">General</span>"</span>
                                     <div class="Productos_most" id="Cont_pr_most">
@@ -523,7 +549,8 @@
 
                                             it = stmt.executeQuery(sl);
                                             int z = 0;
-                                            while (it.next()) {
+                                            while (it.next())
+                                            {
                                                 z = z + 1;
                                             }
 
@@ -533,7 +560,8 @@
 
                                             pr = stmt.executeQuery(sq);
                                             int y = 0;
-                                            while (pr.next()) {
+                                            while (pr.next())
+                                            {
 
                                                 String np = pr.getString("pro_nombre");
                                                 int pre = pr.getInt("pro_precio");
@@ -543,19 +571,14 @@
 
                                         %>
 
-                                        <section class="card_pro_most card_pro_most_active" id="pro">
-                                            <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
-                                            <img src="<%=pi[y]%>" class="card-img-top img_most" alt="..." id="card-img-top">
-                                            <div class="card-body d-flex flex-column">
-                                                <div
-                                                    class="d-flex w-100 justify-content-between align-items-lg-center pr_inf_n">
-                                                    <span class="pre_sl d-flex">$<div class="pre_most_pro"
-                                                                                      id="pre_most_pro"><%=pre%></div>
-                                                    </span>
+                                        <section class="card_pro_most card_pro_most_active" id="card_pro_neg">
+                                            <span class="pre_sl">$<div class="pre_most_pro" id="pre_most_pro"><%=pre%>
                                                 </div>
-                                                <span class="card-text" id="desc_com_pro"><%=pd%></span>
-                                            </div>
+                                            </span>
+                                            <img src="<%=pi[y]%>" class="card-img-top img_most" alt="..." id="card-img-top">
                                             <input type="text" class="dis_most_pro" value="<%=dis%>" disabled>
+                                            <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
+                                            <span class="card-text dis_most_pro" id="desc_com_pro"><%=pd%></span>
                                         </section>
 
                                         <%
@@ -586,7 +609,8 @@
                             </section>
 
                             <%
-                                for (int q = 0; q < y; q++) {
+                                for (int q = 0; q < y; q++)
+                                {
 
 
                             %>
@@ -640,7 +664,8 @@
                                     ResultSet rs7 = stmt.executeQuery("select u.usu_nombre, f.fed_comentario, f.fed_like, p.per_foto from Usuario u inner join Persona p "
                                             + "on p.usu_id = u.usu_id inner join Feedback f on f.per_id = p.per_id where f.neg_id=" + neid + ";");
 
-                                    while (rs7.next()) {
+                                    while (rs7.next())
+                                    {
 
                                         String nomu = rs7.getString("usu_nombre");
                                         String ft = rs7.getString("per_foto");
@@ -655,7 +680,8 @@
                                         <section class="d-flex flex-column align-items-center">
                                             <span><%=nomu%></span>
                                             <%
-                                                if (like == true) {
+                                                if (like == true)
+                                                {
                                             %>
                                             <span><i class="bi bi-heart-fill" id="h_sc"></i> Le gustó este Negocio</span>
                                             <%
@@ -840,7 +866,8 @@
             });
         </script>
         <%
-            if (request.getAttribute("mensaje") != null) {
+            if (request.getAttribute("mensaje") != null)
+            {
         %>          
         <script>
             window.onload = function () {

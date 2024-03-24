@@ -178,7 +178,7 @@ nav {
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
-    background-color: #4a1a31;
+    background-color: #D95538;
     color: white;
 }
 .dtp_tt {
@@ -322,6 +322,13 @@ nav {
 }
 .pre_sl {
     color: black;
+    position: absolute;
+    background: white;
+    display: flex;
+    padding: 0.5%;
+    margin-top: 3%;
+    border-radius: 0px 5px 5px 0px;
+    font-size: 1.1rem;
 }
 .card_pro_most {
     background-color: white;
@@ -788,9 +795,11 @@ nav {
 .information_index_mobile{
     display: none;
 }
-
 .dtup_txt{
     margin-bottom: 2%;
+}
+#slider_dtp{
+    height: 250px;
 }
 
 @media screen and (max-width:1024px){
