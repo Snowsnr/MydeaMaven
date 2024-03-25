@@ -359,6 +359,20 @@ nav {
 .logo_mobile{
     display: none;
 }
+.search_responsive{
+    display: none;
+}
+.close_search{
+    display: none;
+}
+.slide-from-right {
+    transform: translateX(-100%);
+    opacity: 1;
+    transition: transform 0.3s ease;
+}
+.btn_negro_noresponsive{
+    display: none;
+}
 
 @media screen and (max-width:990px) {
     .logo{
@@ -371,52 +385,72 @@ nav {
         display: none;
     }
     .div_buscador{
-        flex: 1;
+        display: none;
         width: 100%;
-        order: 2;
+        height: 80%;
+        margin-top: 2%;
+        margin-left: 200%; 
     }
-    .buscador{
-        flex: 2;
-        margin: 0;
+    .btn_rosa_responsive{
+        display: none;
     }
-    .input_search{
-        width: 100%;
-    }
-    .div_botones{
-        flex: 1;
-        width: 100%;
-        margin-top: 2px;
-        order: 1;
-        justify-content: flex-end;
-    }
-    .button_search i{
-        font-size: 30px
-    }
-    .button_search{
-        width: 15%
-    }
-    nav{
-       min-height: 15vh
-    }
-    .btn_rosa{
-        height: 5vh;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-    .btn_negro{
-        height: 5vh;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-    .icon{
-        height: 5vh;
-        padding: 0;
-        margin-left: 5px;
-        margin-right: 5px;
+    .btn_negro_responsive{
+        display: none;
     }
     .logo_mobile{
         display: flex;
-        margin-right: 10vw;
-        height: 6vh;
+        height: 60%;
+        left: 20px;
+        position: absolute;
+        margin-top: 2%;
+    }
+    .boton{
+        position: absolute;
+        right: 10px;
+        display: flex;
+        flex-direction: row; 
+        width: 25%;
+        height: 80%;
+    }
+    .navbar-toggler{
+        height: 100%;
+        flex: 1;
+        margin-top: 5%
+    }
+    .search_responsive{
+        display: inline;
+        height: 80%;
+        flex: 1;
+        border-radius: 10px;
+        margin-top: 10%;
+    }
+    .search_responsive i{
+        font-size: 25px;
+    }
+    .buscador{
+        width: 100%;
+    }
+    .buscador button{
+        width: 17%;
+    }
+    .close_search{
+        display: none;
+        margin: 0;
+    }
+    .close_search i{
+        font-size: 25px;
+        margin-top: 50%;
+    }
+    .div_botones_menu{
+        display: flex;
+        gap: 10px;
+    }
+    .btn_negro_noresponsive{
+        background: #000;
+        display: flex;
+        flex: 1;
+    }
+    .btn_rosa{
+        flex: 1;
     }
 }

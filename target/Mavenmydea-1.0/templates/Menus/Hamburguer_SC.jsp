@@ -18,7 +18,10 @@
             </span>
             <img src="assets/Logo_Icon.png" alt="Icon_Mydea">
         </div>
-        <button type="button" class="btn btn_rosa text-white shadow" id="btn_registro_h">Registrarse</button>
+        <div class="div_botones_menu">
+            <button type="button" class="btn btn_rosa text-white shadow" id="btn_registro_h">Registrarse</button>
+            <a href="Iniciar_Sesion.jsp"><button type="button" class="btn btn_negro btn_negro_noresponsive text-white shadow" id="">Acceder</button></a>
+        </div>
     </div>
     <div class="offcanvas-body hamburger_body d-flex flex-column">
         <form class="d-flex mt-3 justify-content-center busq_hamburguer" method="post">

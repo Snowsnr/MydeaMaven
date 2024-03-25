@@ -975,23 +975,25 @@
                 </section>
             </div>
         </form>
+         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+                                    
+let esc_res = document.getElementById("esc_res");
+let hacer_resena_neg = document.getElementById("hacer_resena_neg");
+let cancelar_resena_neg = document.getElementById("cancelar_resena_neg");
+
+esc_res.addEventListener("click", ()=>{
+    hacer_resena_neg.style.display = "flex";
+});
+cancelar_resena_neg.addEventListener("click", ()=>{
+    hacer_resena_neg.style.display = "none";
+});
+
+                                    </script>
         <%
             c.close();
         %>
-        <script>
 
-            let esc_res = document.getElementById("esc_res");
-            let hacer_resena_neg = document.getElementById("hacer_resena_neg");
-            let cancelar_resena_neg = document.getElementById("cancelar_resena_neg");
-
-            esc_res.addEventListener("click", () => {
-                hacer_resena_neg.style.display = "flex";
-            });
-            cancelar_resena_neg.addEventListener("click", () => {
-                hacer_resena_neg.style.display = "none";
-            });
-
-        </script>
         <script>
             // Activar todos los tooltips
             var tooltips = new bootstrap.Tooltip(document.body, {
@@ -1001,25 +1003,45 @@
         <%
             if (request.getAttribute("mensaje") != null)
             {
+            
+                if(request.getAttribute("mensaje").equals("Ya has guardado este negocio")){
         %>          
         <script>
-            window.onload = function () {
-                alert("  <%=request.getAttribute("mensaje")%>");
-            };
+            
+       Swal.fire({
+  icon: "error",
+  title: "<%=request.getAttribute("mensaje")%>",
+  showConfirmButton: false,
+  timer: 5000
+});
+    
         </script>      
         <%
-            }
-        %>
+            }else{
+%>          
+        <script>
+            
+       Swal.fire({
+  icon: "success",
+  title: "<%=request.getAttribute("mensaje")%>",
+  showConfirmButton: false,
+  timer: 5000
+});
+    
+        </script>      
         <%
-            } else
-            {
-                System.out.println("Error: Sesión no existe");
-                response.sendRedirect("index.jsp");
+
+}
             }
         %>
+                                                <%
+            }else{
+    System.out.println("Error: Sesión no existe");
+    response.sendRedirect("index.jsp");
+}
+            %>
         <script src="js/Nav.js"></script>
         <script src="js/negocio.js"></script>
         <script src="js/cu.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
 </html>

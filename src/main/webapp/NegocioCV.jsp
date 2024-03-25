@@ -988,39 +988,116 @@
             hacer_resena_neg.style.display = "none";
         });
 
-    </script>
-    <%
-        c.close();
-    %>
+                    <li>
+                        <input type="radio" name="IED" id="IED" value="Información erronea o desactualizada"
+                               class="Option_R"><label for="IED">Información erronea o desactualizada</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="PST" id="PST" value="Productos o servicios que fomenten el terrorismo"
+                               class="Option_R"><label for="PST">Productos o servicios que fomenten el terrorismo</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="PSM" id="PSM"
+                               value="Productos o servicios que involucren el maltrato o abuso de personas"
+                               class="Option_R"><label for="PSM">Productos o servicios que involucren el maltrato o abuso de
+                            personas</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="PSE" id="PSE" value="Productos o servicios engañosos"
+                               class="Option_R"><label for="PSE">Productos o servicios engañosos</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="RUP" id="RUP" value="Usuario Peligroso" class="Option_R"><label
+                            for="RUP">Usuario Peligroso</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="PSP" id="PSP" value="Pesimos Servicios o Productos"
+                               class="Option_R"><label for="PSP">Pesimos Servicios o Productos</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="OTH" id="OTH" value="Otro" class="Option_R"><label for="OTH">Otro</label>
+                    </li>
+                </ul>
+                <section class="Formalario_R" id="Input_Form">
+                    <textarea class="Input_Form" placeholder="Por favor especifique la razon de su reporte"></textarea>
+                </section>
+                <section class="Botones_Reporte">
+                    <button id="Cancelar_R" type="button">Cancelar</button>
+                    <button id="Continuar_R" type="button">Siguiente</button>
+                    <button id="Regresar" class="Regresar" type="button"><i class="bi bi-arrow-bar-left"></i>
+                        Regresar</button>
+                    <button id="Enviar_R" class="Enviar_R" type="submit">Enviar Reporte</button>
+                </section>
+            </div>
+        </form>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+                                    
+let esc_res = document.getElementById("esc_res");
+let hacer_resena_neg = document.getElementById("hacer_resena_neg");
+let cancelar_resena_neg = document.getElementById("cancelar_resena_neg");
 
-    <script>
-        // Activar todos los tooltips
-        var tooltips = new bootstrap.Tooltip(document.body, {
-            selector: '[data-bs-toggle="tooltip"]',
-        });
-    </script>
-    <%
-        if (request.getAttribute("mensaje") != null)
-        {
-    %>          
-    <script>
-        window.onload = function () {
-            alert("  <%=request.getAttribute("mensaje")%>");
-        };
-    </script>      
-    <%
-        }
-    %>
-    <%
-        } else
-        {
-            System.out.println("Error: Sesión no existe");
-            response.sendRedirect("index.jsp");
-        }
-    %>
-    <script src="js/Nav.js"></script>
-    <script src="js/negocio.js"></script>
-    <script src="js/cu.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</body>
+esc_res.addEventListener("click", ()=>{
+    hacer_resena_neg.style.display = "flex";
+});
+cancelar_resena_neg.addEventListener("click", ()=>{
+    hacer_resena_neg.style.display = "none";
+});
+
+                                    </script>
+        <%
+            c.close();
+        %>
+
+        <script>
+            // Activar todos los tooltips
+            var tooltips = new bootstrap.Tooltip(document.body, {
+                selector: '[data-bs-toggle="tooltip"]',
+            });
+        </script>
+        <%
+            if (request.getAttribute("mensaje") != null)
+            {
+            
+                if(request.getAttribute("mensaje").equals("Ya has guardado este negocio")){
+        %>          
+        <script>
+            
+       Swal.fire({
+  icon: "error",
+  title: "<%=request.getAttribute("mensaje")%>",
+  showConfirmButton: false,
+  timer: 5000
+});
+    
+        </script>      
+        <%
+            }else{
+%>          
+        <script>
+            
+       Swal.fire({
+  icon: "success",
+  title: "<%=request.getAttribute("mensaje")%>",
+  showConfirmButton: false,
+  timer: 5000
+});
+    
+        </script>      
+        <%
+
+}
+            }
+        %>
+                                                <%
+            }else{
+    System.out.println("Error: Sesión no existe");
+    response.sendRedirect("index.jsp");
+}
+            %>
+        <script src="js/Nav.js"></script>
+        <script src="js/negocio.js"></script>
+        <script src="js/cu.js"></script>
+        
+    </body>
 </html>

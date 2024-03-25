@@ -804,7 +804,7 @@ nav {
 
 @media screen and (max-width:1024px){
     #carouselExampleInterval{
-        padding-top: 14vh;
+        padding-top: 9vh;
     }
     .neg{
         flex-direction: column;

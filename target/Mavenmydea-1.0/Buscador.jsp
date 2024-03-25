@@ -40,7 +40,7 @@
                         Conexion con;
                         Connection c;
                         Statement stmt;
-                        ResultSet rs, rs2, rs3;
+                        ResultSet rs, rs2, rs3, rs4, rs5, rs6, rs7;
 
                         int id;
                         int i = 0;
@@ -50,6 +50,74 @@
                         con.setCon();
                         c = con.getCon();
                         stmt = c.createStatement();
+                        
+                        int contador =0;
+                        
+                        PreparedStatement ps4 = c.prepareStatement("SELECT n.*,d.*,p.per_foto,u.usu_nombre FROM Direccion d INNER JOIN "
+                                + "Negocio n ON n.dir_id=d.dir_id INNER JOIN Persona p ON n.per_id = p.per_id INNER JOIN Usuario u ON"
+                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre ILIKE ?");
+                        ps4.setString(1, "%" + bs + "%");
+                        rs4 = ps4.executeQuery();
+                        if (rs4 != null)
+                        {
+                            while (rs4.next())
+                            {
+                            contador = contador + 1;
+                            
+                            }
+                    }
+                    
+                    
+                    int[] ids = new int[contador];
+                    int cont = 0;
+                    PreparedStatement ps5 = c.prepareStatement("SELECT n.*,d.*,p.per_foto,u.usu_nombre FROM Direccion d INNER JOIN "
+                                + "Negocio n ON n.dir_id=d.dir_id INNER JOIN Persona p ON n.per_id = p.per_id INNER JOIN Usuario u ON"
+                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre ILIKE ?");
+                        ps5.setString(1, "%" + bs + "%");
+                        rs5 = ps5.executeQuery();
+                        if (rs5 != null)
+                        {
+                            while (rs5.next())
+                            {
+                            
+                                ids[cont] = rs5.getInt("neg_id");
+                                cont=cont +1;
+                            }
+                    }
+                    
+                    int cont2 =0;
+                    int[] nlike = new int[contador];
+                    int[] ncomentario = new int[contador];
+                    int cont3 = 0;
+                    int cont4=0;
+                    int cont5=0;
+                    
+                    for (int f = 0; f < contador; f++) {
+                           rs6 = stmt.executeQuery("Select * from Feedback where neg_id="+ids[cont2]+" and fed_like=true;"); 
+                           
+                           while(rs6.next()){
+                           cont3= cont3 +1;
+                    }
+                           nlike[cont2]=cont3;
+                           cont3=0;
+                           cont2= cont2+1;
+                        }
+                        
+                    for (int f = 0; f < contador; f++) {
+                           rs7 = stmt.executeQuery("Select * from Feedback where neg_id="+ids[cont4]+";"); 
+                           
+                           while(rs7.next()){
+                           cont5= cont5 +1;
+                    }
+                           ncomentario[cont4]=cont5;
+                           cont5=0;
+                           cont4= cont4+1;
+                        }
+                    
+                    
+                    
+                        
+                       int cont6 = 0; 
                         PreparedStatement ps = c.prepareStatement("SELECT n.*,d.*,p.per_foto,u.usu_nombre FROM Direccion d INNER JOIN "
                                 + "Negocio n ON n.dir_id=d.dir_id INNER JOIN Persona p ON n.per_id = p.per_id INNER JOIN Usuario u ON"
                                 + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre LIKE ?");
@@ -89,10 +157,10 @@
                                     <span id="dir_neg_busq"><%=direccion%></span>
                                 </section>
                                 <section class="inf_neg_busq">
-                                    <i class="bi bi-heart-fill"></i> <span id="calf_neg_busq">0</span>
+                                    <i class="bi bi-heart-fill"></i> <span id="calf_neg_busq"><%=nlike[cont6]%></span>
                                 </section>
                                 <section class="inf_neg_busq">
-                                    <i class="bi bi-chat-square-dots-fill"></i> <span id="com_neg_busq">0</span>
+                                    <i class="bi bi-chat-square-dots-fill"></i> <span id="com_neg_busq"><%=ncomentario[cont6]%></span>
                                 </section>
                             </section>
                         </section>
@@ -105,7 +173,9 @@
                         </section>
                     </section>
 
-                    <%}
+                    <%
+                        cont6=cont6+1;
+                        }
                         }
                     %>
 
@@ -166,7 +236,8 @@
                     %>
 
                     <%
-                        PreparedStatement ps3 = c.prepareStatement("SELECT * FROM Producto WHERE pro_nombre LIKE ?");
+                        PreparedStatement ps3 = c.prepareStatement("SELECT * FROM Producto p inner join Negocio n on p.neg_id=n.neg_id"
+                                + " WHERE p.pro_nombre ILIKE ?");
                         ps3.setString(1, "%" + bs + "%");
                         rs3 = ps3.executeQuery();
                         if (rs3 != null)
@@ -177,7 +248,9 @@
                                 String pnom = rs3.getString("pro_nombre");
                                 String pimg = rs3.getString("pro_imagen");
                                 int precio = rs3.getInt("pro_precio");
+                                String desc = rs3.getString("pro_descripcion");
                                 int nid = rs3.getInt("neg_id");
+                                String nimg = rs3.getString("neg_logo");
                     %>
 
                     <!-- Producto -->
@@ -187,21 +260,21 @@
                         <img class="img_pro_busq ipb1" src="<%=pimg%>">
                         <section class="ivbs" id="ivsy">
                             <span id="ivsy">De:</span>
-                            <img class="img_vd_busq ivb1" src="src"/>
+                            <img class="img_vd_busq ivb1" src="<%=nimg%>"/>
                         </section>
-                        <img class="img_pro_busq ipb2" src="src"/>
+                        <img class="img_pro_busq ipb2" src="<%=nimg%>"/>
                         <section class="ivbs ivbsn">
-                            <span>Ofece:</span>
+                            <span>Ofrece:</span>
                             <img class="img_vd_busq ivb2" src="<%=pimg%>"/>
                         </section>
                         <section
                             class="num_pro_busq">
                             <span class="nb_busq nb"><%=pnom%></span>
-                            <span>Descripción</span>
+                            <span><%=desc%></span>
                             <hr id="lnngbs">
                             <section class="lkpr">
                                 <span>$<%=precio%></span>
-                                <span><i class="bi bi-heart-fill"></i> 0 Me Gusta</span>
+                                
                             </section>
                         </section>
                         <input type="hidden" name="idn" value="<%=nid%>"/>

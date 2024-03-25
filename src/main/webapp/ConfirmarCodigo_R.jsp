@@ -12,9 +12,9 @@
         <title>JSP Page</title>
     </head>
   <style>
-        body {
+ body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: white;
             margin: 0;
             padding: 0;
         }
@@ -25,20 +25,34 @@
         }
 
         form {
-            background-color: #fff;
+            background-color: #f6f8fa;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
             max-width: 300px; /* Ajusta este valor según tus necesidades */
             margin: 0 auto; /* Centra el formulario horizontalmente */
+            padding: 16px;
+            font-size: 14px;
+            border: 1px solid rgb(201, 201, 201);
+            border-radius: 6px;
+            width: 15%;
+            
         }
 
         h1 {
-            color: #333;
-            font-size: 1.2em; /* Ajusta este valor según tus necesidades */
-            margin-bottom: 10px;
+            color: #000;
+            font-size: 24px;            
+            margin-bottom: 50px;
+            margin-top: 20px;
+            margin-left: 40%;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+            letter-spacing: -0.5px;
+            font-weight: 300;      
+            width: 20%;
         }
+        
+        
 
         label {
             display: block;
@@ -54,6 +68,10 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+        textarea:focus, input:focus, input[type]:focus {
+    border-color: lightblue;
+    
+}
 
         span {
             color: red;
@@ -62,24 +80,41 @@
         }
 
         input[type="submit"] {
-            background-color: #4caf50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
+           position: relative;
+            display: inline-block;
+            padding: 5px 16px;
+            font-size: 14px;
+            font-weight: var(--base-text-weight-medium, 500);
+            line-height: 20px;
+            white-space: nowrap;
+            vertical-align: middle;
             cursor: pointer;
+            -webkit-user-select: none;
+            user-select: none;
+            border: 1px solid;
+            border-radius: 6px;
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: #1f883d;
+            color: white;
         }
 
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #1a7f37;
+        }
+        
+        img{
+            height: 60px;
+            width: 60px;
         }
     </style>
     <body>
         <div class="cont">
+            <img src="assets/Logo_Icon.png" alt="alt"/>
         <h1>Se ha enviado un codigo a su correo electrónico</h1>
         <form action="Registro" method="POST">
             <label for="code">Código de confirmación:</label><br>
-            <input type="text" id="code" name="codigo"><br>
+            <input class="form-control" type="text" id="code" name="codigo"><br>
             <span>${error_codigo}</span>
             <%-- Recuperar los datos de la sesión --%>
             <input type="hidden" name="Nom_com_reg" value="<%= session.getAttribute("nombrep") %>">

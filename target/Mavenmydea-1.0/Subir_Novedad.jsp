@@ -147,7 +147,12 @@
         %>          
                 <script>
     window.onload=function() {
-       alert( "<%=request.getAttribute("mensaje")%>");
+       Swal.fire({
+  icon: "success",
+  title: "<%=request.getAttribute("mensaje")%>",
+  showConfirmButton: false,
+  timer: 5000
+});
     };
  </script>      
         <%

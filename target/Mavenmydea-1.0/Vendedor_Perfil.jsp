@@ -147,7 +147,8 @@
                 <div class="cont_res_var d- flex-column">
 
                     <%                       rs3 = stmt.executeQuery("Select * from Negocio where neg_activo=true and per_id=" + pid + ";");
-
+                        int contador = 0;
+                        int contador2 = 1;
                         while (rs3.next())
                         {
 
@@ -202,9 +203,9 @@
                                         <button type="submit" class="btn btn_visitar_busq">Editar Productos</button>
                                     </form>  
                                            
-                                    <form action="EliminarNegocio" method="post">
+                                        <form action="EliminarNegocio" method="post" id="forme<%=contador%>">
                                         <input type="hidden" name="idn" value="<%=idn%>"/>
-                                        <button type="submit" class="btn btn_elim_busq">Eliminar</button>
+                                        <button type="submit" class="btn btn_elim_busq" id="btnsubmit<%=contador%>">Eliminar</button>
                                     </form>
                                       
                                     
@@ -213,12 +214,15 @@
                         </section>
                     </section>
                     <%
+                        contador = contador +1;
                         }
                         c.close();
                     %>
+                    <input type="hidden" id="contador" value="<%=contador%>"/>
                 </div>
             </div>
         </div>
+                
         <script>
             // Activar todos los tooltips
             var tooltips = new bootstrap.Tooltip(document.body, {
@@ -244,5 +248,7 @@
     response.sendRedirect("index.jsp");
 }
             %>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script src="js/vp.js"></script>
     </body>
 </html>

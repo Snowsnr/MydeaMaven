@@ -180,7 +180,7 @@
                             <section class="w-100 h-75 hormap_n d-flex flex-column">
                                 <span class="hu_tt">Horarios y Ubicación</span>
                                 <section class="d-flex w-100 h-100 hormap_ncon">
-                                    <section class="w-50">
+                                    <section class="ancho">
                                         <div class="d-flex flex-column horarios_cnf" id="horarios_cnf">
                                             <span class="fw-bold">Horarios
                                                 <i class="bi bi-question-circle" data-bs-toggle="tooltip"
@@ -398,12 +398,12 @@
                                             </section>
                                         </div>
                                     </section>
-                                    <section class="d-flex flex-column w-50 h-100">
+                                    <section class="d-flex flex-column ancho h-100">
                                         <span class="fw-bold">Ubicación
                                             <i class="bi bi-question-circle" data-bs-toggle="tooltip"
                                                data-bs-placement="right" data-bs-title="Tooltip on right"></i></span>
                                         <section class="d-flex w-100">
-                                            <span class="w-50 dir_loc" id="dir_loc" data-bs-title="<%=direccion%>"><%=direccion%></span>
+                                            <span class="ancho dir_loc" id="dir_loc" data-bs-title="<%=direccion%>"><%=direccion%></span>
                                             <section class="w-50 d-flex align-items-center justify-content-around ">
                                                 <button class="btn btn_bl" id="cop_dir">Copiar</button>
                                             </section>
@@ -512,7 +512,7 @@
                     <form class="d-flex flex-column" id="Productos_Neg">
                         <span class="tittle_n">Productos</span>
                         <div class="w-100 products_div_n justify-content-between d-flex">
-                            <div class="d-flex flex-column justify-content-between sp_div_n">
+                            <div class="flex-column justify-content-between sp_div_n">
                                 <img src="<%=logo%>" alt="" id="img_L_pr">
                                 <button type="button" class="btn btn_sp btn_active btn_general"
                                         id="general_most">General</button>
@@ -580,6 +580,8 @@
                                             <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
                                             <span class="card-text dis_most_pro" id="desc_com_pro"><%=pd%></span>
                                         </section>
+                                        
+                                        
 
                                         <%
                                                 y = y + 1;

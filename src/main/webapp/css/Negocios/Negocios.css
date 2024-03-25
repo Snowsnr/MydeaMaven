@@ -327,6 +327,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     text-shadow: 2px 2px 1px black;
 }
 .sp_div_n {
+    display: flex;
     width: 25%;
     height: 85vh;
     padding: 10px;
@@ -1346,6 +1347,91 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 #nav_sc{
     width: 30%;
 }
-#card_pro_neg{
-    height: 250px;
+.ancho{
+    width: 50%;
+}
+@media screen and (max-width:1024px){
+    .prestn_neg{
+        height: 85vh;
+        margin-top: 0;
+    }
+    .cont_prestn_neg{
+        height: 85vh;
+    }
+    #Dts_Neg{
+        flex-direction: column;
+    }
+    .p1_navn{
+        width: 100%;
+    }
+    .hormap_ncon{
+        flex-direction: column;
+    }
+    .ancho{
+        width: 100%;
+    }
+    .line_cnf{
+        margin-left: 2%;
+        margin-top: 3.5%;
+    }
+    #line_hn{
+        height: 40%;
+    }
+    .hormap_n{
+        gap: 0;
+        margin: 0;
+    }
+    #Productos_Neg, #Dts_Neg{
+        margin-left: 5px;
+    }
+    .p2_navn{
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 5%;
+    }
+    .card_neg{
+        width: 22rem;
+    }
+    .bord_color div{
+        width: 90%;
+        margin-left: 5%;
+    }
+    .productos_most{
+        width: 100%;
+    }
+    .sp_div_n{
+        display: none;
+    }
+    .buscpro_form_n input{
+        width: 100%;
+    }
+    .card_pro_most_active{
+        width: 48%;
+        height: 49%;
+        margin-right: 0;
+        margin-bottom: 2%;
+    }
+    .tt_pro_most{
+        font-size: 1rem;
+    }
+    .pr_inf_n span:last-child{
+        font-size: 1.3rem;
+    }
+    .imgneg{
+        width: 100%;
+    }
+    .imgpro{
+        width: 100%;
+    }
+    .resenas_otros_usuarios{
+        margin-left: 4px;
+    }
+    .Reporte_Emer{
+        width: 90%;
+    }
+}
+@media screen and (max-height:741px){
+    .nomneg_neg{
+        font-size: 7rem;
+    }
 }
