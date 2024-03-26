@@ -112,15 +112,15 @@ public class IniciarSesion extends HttpServlet {
                     c.setCon();
                     con=c.getCon();
 
-                    String mensaje = c.ISU(nom, pass, correo);
+                    String mensaje = c.ISU(encnom, encpass, enccorreo);
 
                     if(mensaje==null){
 
                         String[] Persona = new String[9];
 
-                        Persona=c.InfoPersona(nom);
+                        Persona=c.InfoPersona(encnom);
 
-                        String tipo = c.Tipo(nom);
+                        String tipo = c.Tipo(encnom);
 
                         try {
                             con.close();
@@ -188,15 +188,15 @@ public class IniciarSesion extends HttpServlet {
                 boolean error = false;
                 
                 //Nombre de usuario
-                if(nom != null){
-                    nom = nom.trim();
+                if(encnom != null){
+                    encnom = encnom.trim();
                     //Que no este vacio
-                    if(nom.isEmpty()){
+                    if(encnom.isEmpty()){
                         request.setAttribute("error_nombreUsuario_Vacio", "El campo no debe de estar vacio");
                         error = true;
                     }
                     //Muy largo
-                    if(nom.length() > 60){
+                    if(encnom.length() > 60){
                         request.setAttribute("error_nombreUsuario_Largo", "Solo se permiten hasta 60 caracteres");
                         error = true;
                     }
@@ -206,15 +206,15 @@ public class IniciarSesion extends HttpServlet {
                 }
                 
                 //Correo
-                if(correo != null){
-                    correo = correo.trim();
+                if(enccorreo != null){
+                    enccorreo = enccorreo.trim();
                     //Que no este vacio
-                    if(correo.isEmpty()){
+                    if(enccorreo.isEmpty()){
                         request.setAttribute("error_correo_Vacio", "El campo no debe de estar vacio");
                         error = true;
                     }
                     //Que sea correcto el correo
-                    if(!Pattern.matches(regex_Correo, correo)){
+                    if(!Pattern.matches(regex_Correo, enccorreo)){
                         request.setAttribute("error_correo_Invalido", "Ingrese un correo electronico valido");
                         error = true;
                     } 
@@ -224,10 +224,10 @@ public class IniciarSesion extends HttpServlet {
                 }
                 
                 //Contraseña
-                if(pass != null){
-                    pass = pass.trim();
+                if(encpass != null){
+                    encpass = encpass.trim();
                     //Que no este vacio
-                    if(pass.isEmpty()){
+                    if(encpass.isEmpty()){
                         request.setAttribute("error_contraseña_Vacio", "El campo no debe de estar vacio");
                         error = true;
                     }

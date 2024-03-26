@@ -14,6 +14,7 @@
 <%@page import="Clases.Persona"%>
 <%@page import="Clases.Usuario"%>
 <%@page import="java.util.ArrayList" %>
+<%@page import="org.owasp.encoder.Encode" %>
 
 <!DOCTYPE html>
 <html>
@@ -43,8 +44,9 @@
                 </section>
                 <div class="cont_busq_res">
 
-                   <%
-                        String bs = request.getParameter("txt");
+                   <%   
+                        String enctxt = Encode.forHtml(request.getParameter("txt"));
+                        String bs = enctxt;
                         Conexion con;
                         Connection c;
                         Statement stmt;

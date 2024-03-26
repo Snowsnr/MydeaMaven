@@ -38,6 +38,7 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 
+import org.owasp.encoder.Encode;
 
 /**
  *
@@ -61,16 +62,22 @@ public class Registro extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             String nombrep = request.getParameter("Nom_com_reg");
+            String encnombrep = Encode.forHtml(nombrep);
             request.setAttribute("valorNombreP", nombrep);
             String nombreu = request.getParameter("Nom_usu_reg");
+            String encnombreu = Encode.forHtml(nombreu);
             request.setAttribute("valorNombreU", nombreu);
             String correo = request.getParameter("Email_reg");
+            String enccorreo = Encode.forHtml(correo);
             request.setAttribute("valorCorreo", correo);
             String telefono = request.getParameter("Num_reg");
+            String enctelefono = Encode.forHtml(telefono);
             request.setAttribute("valorTelefono", telefono);
             String password = request.getParameter("Con_reg");
+            String encpassword = Encode.forHtml(correo);
             request.setAttribute("valorPassword", password);
             String Cpassword = request.getParameter("ConCon_reg");
+            String encCpassword = Encode.forHtml(correo);
             request.setAttribute("valorCpassword", Cpassword);
             String TyC = request.getParameter("TyC_reg");
             request.setAttribute("valorTyC", TyC);
@@ -83,6 +90,7 @@ public class Registro extends HttpServlet {
             request.setAttribute("valorTipoCuenta", tipo);
             
             String codigo = request.getParameter("codigo");
+            String enccodigo = Encode.forHtml(codigo);
 
             
             //Expresiones regulares
@@ -105,21 +113,21 @@ public class Registro extends HttpServlet {
                 if (ChronoUnit.MINUTES.between(generationTime, LocalDateTime.now()) > 5) {
                     request.setAttribute("error_codigo", "El código de confirmación ha caducado");
                     request.getRequestDispatcher("ConfirmarCodigo_R.jsp").forward(request, response);
-                } else if (codigo.equals(codigoCompletado)) {
+                } else if (enccodigo.equals(codigoCompletado)) {
                     Conexion con = new Conexion();
             
                     Connection c;
                     con.setCon();
                     c=con.getCon();
                     
-                    System.out.println("nombreu: " + nombreu);
-                    System.out.println("password: " + password);
-                    System.out.println("nombrep: " + nombrep);
-                    System.out.println("telefono: " + telefono);
-                    System.out.println("correo: " + correo);
+                    System.out.println("nombreu: " + encnombreu);
+                    System.out.println("password: " + encpassword);
+                    System.out.println("nombrep: " + encnombrep);
+                    System.out.println("telefono: " + enctelefono);
+                    System.out.println("correo: " + enccorreo);
                     System.out.println("tipo: " + tipo);
 
-                    String mensaje = con.Registro(nombreu, password, nombrep, telefono, correo, tipo);
+                    String mensaje = con.Registro(encnombreu, encpassword, encnombrep, enctelefono, enccorreo, tipo);
 
                      try {
                         c.close();
@@ -148,20 +156,20 @@ public class Registro extends HttpServlet {
                 //Validaciones
                 
                     //Nombre completo
-                    if(nombrep != null){
-                        nombrep = nombrep.trim();
+                    if(encnombrep != null){
+                        encnombrep = encnombrep.trim();
                         //Que no este vacio
-                        if(nombrep.isEmpty()){
+                        if(encnombrep.isEmpty()){
                             request.setAttribute("error_nombreCompleto_Vacio", "Ingrese su nombre");
                             error = true;
                         }
                         //Muy largo
-                        if(nombrep.length() > 60){
+                        if(encnombrep.length() > 60){
                             request.setAttribute("error_nombreCompleto_Largo", "Solo se permiten hasta 60 caracteres");
                             error = true;
                         }
                         //Solo letras
-                        if(!Pattern.matches(regex_Letras, nombrep)){
+                        if(!Pattern.matches(regex_Letras, encnombrep)){
                             request.setAttribute("error_nombreCompleto_Invalido", "Solo se permiten letras");
                             error = true;
                         }
@@ -171,15 +179,15 @@ public class Registro extends HttpServlet {
                     }
                     
                     //Nombre de usuario
-                    if(nombreu != null){
-                        nombreu = nombreu.trim();
+                    if(encnombreu != null){
+                        encnombreu = encnombreu.trim();
                         //Que no este vacio
-                        if(nombreu.isEmpty()){
+                        if(encnombreu.isEmpty()){
                             request.setAttribute("error_nombreUsuario_Vacio", "El campo no debe de estar vacio");
                             error = true;
                         }
                         //Muy largo
-                        if(nombreu.length() > 60){
+                        if(encnombreu.length() > 60){
                             request.setAttribute("error_nombreUsuario_Largo", "Solo se permiten hasta 60 caracteres");
                             error = true;
                         }
@@ -189,15 +197,15 @@ public class Registro extends HttpServlet {
                     }
                     
                     //Correo
-                    if(correo != null){
-                        correo = correo.trim();
+                    if(enccorreo != null){
+                        enccorreo = enccorreo.trim();
                         //Que no este vacio
-                        if(correo.isEmpty()){
+                        if(enccorreo.isEmpty()){
                             request.setAttribute("error_correo_Vacio", "El campo no debe de estar vacio");
                             error = true;
                         }
                         //Que sea correcto el correo
-                        if(!Pattern.matches(regex_Correo, correo)){
+                        if(!Pattern.matches(regex_Correo, enccorreo)){
                             request.setAttribute("error_correo_Invalido", "Ingrese un correo electronico valido");
                             error = true;
                         } 
@@ -207,15 +215,15 @@ public class Registro extends HttpServlet {
                     }
                     
                     //Telefono
-                    if(telefono != null){
-                        telefono = telefono.trim();
+                    if(enctelefono != null){
+                        enctelefono = enctelefono.trim();
                         //Que no este vacio
-                        if(telefono.isEmpty()){
+                        if(enctelefono.isEmpty()){
                             request.setAttribute("error_telefono_Vacio", "El campo no debe de estar vacio");
                             error = true;
                         }
                         //Que sea valido el telefono
-                        if(!Pattern.matches(regex_Telefono, telefono)){
+                        if(!Pattern.matches(regex_Telefono, enctelefono)){
                             request.setAttribute("error_telefono_Invalido", "Ingrese un numero de telefono valido");
                             error = true;
                         }
@@ -225,15 +233,15 @@ public class Registro extends HttpServlet {
                     }
                     
                     //Contraseña
-                    if(password != null){
-                        password = password.trim();
+                    if(encpassword != null){
+                        encpassword = encpassword.trim();
                         //Que no este vacio
-                        if(password.isEmpty()){
+                        if(encpassword.isEmpty()){
                             request.setAttribute("error_contraseña_Vacio", "El campo no debe de estar vacio");
                             error = true;
                         }
                         //Que tenga minimo 1 numero
-                        if(!Pattern.matches(regex_Contraseña, password)){
+                        if(!Pattern.matches(regex_Contraseña, encpassword)){
                             request.setAttribute("error_contraseña_Invalido", "La contraseña debe contener al menos un numero");
                             error = true;
                         }
@@ -243,15 +251,15 @@ public class Registro extends HttpServlet {
                     }
 
                     //Confirmar contraseña                    
-                    if(Cpassword != null){
-                        Cpassword = Cpassword.trim();
+                    if(encCpassword != null){
+                        encCpassword = encCpassword.trim();
                         //Que no este vacio
-                        if(Cpassword.isEmpty()){
+                        if(encCpassword.isEmpty()){
                             request.setAttribute("error_confirmarContraseña_Vacio", "El campo no debe de estar vacio");
                             error = true;
                         }
                         //Contraseñas iguales
-                        if(!Cpassword.equals(password)){
+                        if(!encCpassword.equals(password)){
                             request.setAttribute("error_confirmarContraseña_Invalido", "Las contraseñas no coinciden");
                             error = true;
                         }
