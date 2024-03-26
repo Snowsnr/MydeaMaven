@@ -580,8 +580,8 @@
                                             <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
                                             <span class="card-text dis_most_pro" id="desc_com_pro"><%=pd%></span>
                                         </section>
-                                        
-                                        
+
+
 
                                         <%
                                                 y = y + 1;
@@ -676,23 +676,20 @@
                                 %>
 
                                 <section class="resena_usua_esp d-flex flex-column">
-                                    <section
-                                        class="d-flex justify-content-around flex-column align-items-center comentario_n">
+                                    <section class="comentario_n">
+                                        <span><%=nomu%></span>
                                         <img src="<%=ft%>" alt="">
-                                        <section class="d-flex flex-column align-items-center">
-                                            <span><%=nomu%></span>
-                                            <%
-                                                if (like == true)
-                                                {
-                                            %>
-                                            <span><i class="bi bi-heart-fill" id="h_sc"></i> Le gustó este Negocio</span>
-                                            <%
-                                                }
-                                            %>
-
-                                        </section>
                                     </section>
                                     <span class="texto_res_usu"><%=comentario%></span>
+                                    <%
+                                        if (like == true)
+                                        {
+                                    %>
+                                    <span class="liornli"><i class="bi bi-heart-fill"></i> Le gustó este Negocio</span>
+                                    <%
+                                        }
+                                    %>
+                                    <i class="bi bi-quote comment_icon_neg"></i>
                                 </section>
 
                                 <%

@@ -376,3 +376,13 @@ for (var i = 0; i < dir_loc.length; i++) {
         });
     });
 }
+let esc_res = document.getElementById("esc_res");
+let hacer_resena_neg = document.getElementById("hacer_resena_neg");
+let cancelar_resena_neg = document.getElementById("cancelar_resena_neg");
+
+esc_res.addEventListener("click", ()=>{
+    hacer_resena_neg.style.display = "flex";
+});
+cancelar_resena_neg.addEventListener("click", ()=>{
+    hacer_resena_neg.style.display = "none";
+});

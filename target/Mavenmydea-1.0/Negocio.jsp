@@ -46,13 +46,15 @@
             c = con.getCon();
             stmt = c.createStatement();
 
-            if (request.getAttribute("neid") != null) {
+            if (request.getAttribute("neid") != null)
+            {
 
                 rs = stmt.executeQuery("select n.*, u.usu_nombre, p.per_foto, p.per_correo from Negocio n inner join Persona p on p.per_id=n.per_id"
-                + " inner join Usuario u on p.usu_id=u.usu_id where n.neg_id=" + request.getAttribute("neid") + ";");
-            } else {
+                        + " inner join Usuario u on p.usu_id=u.usu_id where n.neg_id=" + request.getAttribute("neid") + ";");
+            } else
+            {
                 rs = stmt.executeQuery("select n.*, u.usu_nombre, p.per_foto, p.per_correo from Negocio n inner join Persona p on p.per_id=n.per_id"
-                + " inner join Usuario u on p.usu_id=u.usu_id where n.neg_id=" + id + ";");
+                        + " inner join Usuario u on p.usu_id=u.usu_id where n.neg_id=" + id + ";");
             }
             while (rs.next())
             {
@@ -804,106 +806,6 @@
                             <span id="dis_pro_esp">Disponibilidad</span>
                         </section>
                     </div>
-                    <div class="Prod_most_espe_cont2 flex-column w-100 h-100" id="Prod_most_espe_cont2">
-                        <span class="Tittle_coment_res">Calificar este Producto</span>
-                        <form class="d-flex w-100 w-75 comment_realizar_div" method="post">
-                            <section class="comment_realizar">
-                                <textarea name="coment_prod_usu" id="coment_prod_usu" class="coment_prod_usu"
-                                          placeholder="Escribir un comentario"></textarea>
-                                <hr>
-                                <button type="submit">Comentar</button>
-                            </section>
-                            <section class="heart_pro_res d-flex flex-column">
-                                <i class="bi bi-heart h_sc" id="h_sc" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                   data-bs-title="Me Gusta"></i>
-                                <i class="bi bi-heart-fill h_cc" id="h_cc" data-bs-toggle="tooltip"
-                                   data-bs-placement="bottom" data-bs-title="Ya no me Gusta"></i>
-                            </section>
-                        </form>
-                        <span class="Tittle_coment_res">Reseñas de otros Usuarios</span>
-                        <div class="res_otr_usu d-flex">
-                            <button id="prev_cr" class="btn prev_cr"><i class="bi bi-caret-left"></i></button>
-                            <button id="next_cr" class="btn next_cr"><i class="bi bi-caret-right"></i></button>
-                            <div class="w-100 h-100 d-flex" id="res_otr_usu">
-                                <section class="d-flex flex-column resena_usu_pro">
-                                    <section class="d-flex justify-content-between">
-                                        <img src="assets/Logo_Icon.png" alt="" class="img_usu_res_pro">
-                                        <section class="w-75">
-                                            <span>Nombre de Usuario</span>
-                                            <section><i class="bi bi-heart-fill"></i><span> Le gusta</span></section>
-                                            <span>Comentarios Hechos: 000000</span>
-                                        </section>
-                                    </section>
-                                    <section class="d-flex flex-column">
-                                        <span>00-Mont-0000</span>
-                                        <span>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ea velit, illum
-                                            nisi
-                                            pariatur consequatur eum cupiditate dolore magni deleniti repellendus laboriosam
-                                            esse neque, nobis nesciunt explicabo et culpa maxime.
-                                        </span>
-                                    </section>
-                                </section>
-                                <section class="d-flex flex-column resena_usu_pro">
-                                    <section class="d-flex justify-content-between">
-                                        <img src="assets/Logo_Icon.png" alt="" class="img_usu_res_pro">
-                                        <section class="w-75">
-                                            <span>Nombre de Usuario</span>
-                                            <section><i class="bi bi-heart-fill"></i><span> Le gusta</span></section>
-                                            <span>Comentarios Hechos: 000000</span>
-                                        </section>
-                                    </section>
-                                    <section class="d-flex flex-column">
-                                        <span>00-Mont-0000</span>
-                                        <span>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ea velit, illum
-                                            nisi
-                                            pariatur consequatur eum cupiditate dolore magni deleniti repellendus laboriosam
-                                            esse neque, nobis nesciunt explicabo et culpa maxime.
-                                        </span>
-                                    </section>
-                                </section>
-                                <section class="d-flex flex-column resena_usu_pro">
-                                    <section class="d-flex justify-content-between">
-                                        <img src="assets/Logo_Icon.png" alt="" class="img_usu_res_pro">
-                                        <section class="w-75">
-                                            <span>Nombre de Usuario</span>
-                                            <section><i class="bi bi-heart-fill"></i><span> Le gusta</span></section>
-                                            <span>Comentarios Hechos: 000000</span>
-                                        </section>
-                                    </section>
-                                    <section class="d-flex flex-column">
-                                        <span>00-Mont-0000</span>
-                                        <span>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ea velit, illum
-                                            nisi
-                                            pariatur consequatur eum cupiditate dolore magni deleniti repellendus laboriosam
-                                            esse neque, nobis nesciunt explicabo et culpa maxime.
-                                        </span>
-                                    </section>
-                                </section>
-                                <section class="d-flex flex-column resena_usu_pro">
-                                    <section class="d-flex justify-content-between">
-                                        <img src="assets/Logo_Icon.png" alt="" class="img_usu_res_pro">
-                                        <section class="w-75">
-                                            <span>Nombre de Usuario</span>
-                                            <section><i class="bi bi-heart-fill"></i><span> Le gusta</span></section>
-                                            <span>Comentarios Hechos: 000000</span>
-                                        </section>
-                                    </section>
-                                    <section class="d-flex flex-column">
-                                        <span>00-Mont-0000</span>
-                                        <span>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ea velit, illum
-                                            nisi
-                                            pariatur consequatur eum cupiditate dolore magni deleniti repellendus laboriosam
-                                            esse neque, nobis nesciunt explicabo et culpa maxime.
-                                        </span>
-                                    </section>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <span class="text_inst_pro_espe">Si desea salir dé click fuera de esta ventana emergente</span>
@@ -975,21 +877,8 @@
                 </section>
             </div>
         </form>
-         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script>
-                                    
-let esc_res = document.getElementById("esc_res");
-let hacer_resena_neg = document.getElementById("hacer_resena_neg");
-let cancelar_resena_neg = document.getElementById("cancelar_resena_neg");
-
-esc_res.addEventListener("click", ()=>{
-    hacer_resena_neg.style.display = "flex";
-});
-cancelar_resena_neg.addEventListener("click", ()=>{
-    hacer_resena_neg.style.display = "none";
-});
-
-                                    </script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <%
             c.close();
         %>
@@ -1003,43 +892,46 @@ cancelar_resena_neg.addEventListener("click", ()=>{
         <%
             if (request.getAttribute("mensaje") != null)
             {
-            
-                if(request.getAttribute("mensaje").equals("Ya has guardado este negocio")){
+
+                if (request.getAttribute("mensaje").equals("Ya has guardado este negocio"))
+                {
         %>          
         <script>
-            
-       Swal.fire({
-  icon: "error",
-  title: "<%=request.getAttribute("mensaje")%>",
-  showConfirmButton: false,
-  timer: 5000
-});
-    
+
+            Swal.fire({
+                icon: "error",
+                title: "<%=request.getAttribute("mensaje")%>",
+                showConfirmButton: false,
+                timer: 5000
+            });
+
         </script>      
         <%
-            }else{
-%>          
+        } else
+        {
+        %>          
         <script>
-            
-       Swal.fire({
-  icon: "success",
-  title: "<%=request.getAttribute("mensaje")%>",
-  showConfirmButton: false,
-  timer: 5000
-});
-    
+
+            Swal.fire({
+                icon: "success",
+                title: "<%=request.getAttribute("mensaje")%>",
+                showConfirmButton: false,
+                timer: 5000
+            });
+
         </script>      
         <%
 
-}
+                }
             }
         %>
-                                                <%
-            }else{
-    System.out.println("Error: Sesión no existe");
-    response.sendRedirect("index.jsp");
-}
-            %>
+        <%
+            } else
+            {
+                System.out.println("Error: Sesión no existe");
+                response.sendRedirect("index.jsp");
+            }
+        %>
         <script src="js/Nav.js"></script>
         <script src="js/negocio.js"></script>
         <script src="js/cu.js"></script>

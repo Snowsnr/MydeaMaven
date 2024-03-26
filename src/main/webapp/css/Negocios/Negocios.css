@@ -1040,7 +1040,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .res_neg_ou {
     position: relative;
-    height: 45vh;
+    height: 40vh;
     width: 99%;
     display: flex;
     padding: 10px;
@@ -1063,28 +1063,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     margin-left: 20px;
 }
 .resena_usua_esp {
-    height: 100%;
+    height: 95%;
     width: 325px;
-    background-image: linear-gradient(
-        180deg,
-        #ffd87c 0,
-        #ffc96b 16.67%,
-        #ffcd57 33.33%,
-        #ffb740 50%,
-        #f3a028 66.67%,
-        #eb8d13 83.33%,
-        #e57b00 100%
-        );
+    background: white;
     border-radius: 10px;
-    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.4);
     position: relative;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     flex: 0 0 auto;
-    position: relative;
+    border: 2px solid black;
 }
 .resena_usua_esp section:first-child {
     margin-bottom: 10px;
@@ -1129,10 +1119,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-    position: absolute;
-    width: 94%;
-    bottom: 3%;
+    width: 70%;
     height: 37%;
+    margin-left: 10px;
     overflow-y: scroll;
     font-size: 1rem;
 }
@@ -1144,16 +1133,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     border-radius: 5px;
 }
 .resena_usua_esp img {
-    height: 75px;
-    width: 75px;
+    height: 85px;
+    width: 85px;
     background: rgba(255, 255, 255, 0.7);
     border-radius: 100%;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     -ms-border-radius: 100%;
     -o-border-radius: 100%;
-    padding: 5px;
-    border: 3px solid rgba(255, 255, 255, 0.8);
+    padding: 3px;
+    border: 3px solid rgb(151, 26, 64);
+    margin-right: 5px;
 }
 .resena_usua_esp section:first-child span {
     font-size: 0.8rem;
@@ -1161,6 +1151,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .resena_usua_esp section:first-child span:first-child {
     font-size: 1.5rem;
     font-weight: bold;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    padding-right: 20%;
+    padding-left: 2.5%;
+    background: rgb(151, 26, 64);
+    color: white;
+    border-radius: 0px 25px 25px 0px;
+    position: absolute;
+    left: -5px;
+    text-shadow: 2px 2px 0px #000000;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.4);
+}
+.resena_usua_esp i{
+    color: rgb(151, 26, 64);
 }
 .resena_usua_esp section:first-child span:nth-child(2) {
     font-weight: bold;
@@ -1195,12 +1200,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     -o-transform: scale(1.05);
 }
 .comentario_n {
-    position: absolute;
+    display: flex;
     width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 5px;
-    right: 0;
+    align-items: center;
+    justify-content: end;
+    margin-top: 10px;
 }
 .comment_realizar_div2{
     margin-bottom: 20px;
@@ -1349,6 +1353,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .ancho{
     width: 50%;
+}
+.liornli{
+    margin-left: 10px;
+    display: flex;
+    background: rgba(0,0,0,0.4);
+    gap: 2px;
+    width: 60%;
+    justify-content: center;
+    padding: 2px;
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 3%;
+}
+.comment_icon_neg{
+    color: rgba(151, 26, 64, 0.8);
+    font-size: 6rem;
+    position: absolute;
+    bottom: -19%;
+    right: -3%;
+    transform: scaleX(-1);
 }
 @media screen and (max-width:1024px){
     .prestn_neg{
