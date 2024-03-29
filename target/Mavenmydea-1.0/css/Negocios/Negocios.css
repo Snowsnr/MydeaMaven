@@ -1374,6 +1374,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     right: -3%;
     transform: scaleX(-1);
 }
+.fot_most_esp{
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+}
+.img_esp_gr{
+    max-height: 60%;
+    max-width: 60%;
+}
 @media screen and (max-width:1024px){
     .prestn_neg{
         height: 85vh;

@@ -200,6 +200,27 @@ divEspecifico.addEventListener("click", (e) => {
     }
 });
 
+divs_pro.forEach(function (div) {
+    div.addEventListener('click', function () {
+        copiarDatos(this);
+    });
+});
+
+//bruh
+let clicker_img = document.querySelectorAll(".card_pro_most");
+clicker_img.forEach(function (img) {
+    img.addEventListener('click', function () {
+        MotrarImg(this);
+    });
+});
+function MotrarImg(divClicado) {
+    console.log("hola");
+    let destinoDiv = document.getElementById('fot_most_esp');
+    let img = divClicado.src;
+    destinoDiv.style.display = "flex";
+    destinoDiv.querySelector("#img_esp_gr").src = img;
+}
+
 var ordenOriginal = [];
 let contenedor = document.getElementById("Cont_pr_most");
 select_dis.addEventListener('change', function () {

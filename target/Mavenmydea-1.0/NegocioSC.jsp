@@ -601,13 +601,13 @@
                         </section>
                         <div class="most_img_div">
                             <section class="imgneg">
-                                <img src="<%=imagen1%>" alt="">
+                                <img src="<%=imagen1%>" class="img_esp_cl">
                             </section>
                             <section class="imgneg">
-                                <img src="<%=imagen2%>" alt="">
+                                <img src="<%=imagen2%>" class="img_esp_cl">
                             </section>
                             <section class="imgneg">
-                                <img src="<%=imagen3%>" alt="">
+                                <img src="<%=imagen3%>" class="img_esp_cl">
                             </section>
 
                             <%
@@ -618,7 +618,7 @@
                             %>
 
                             <section class="imgpro">
-                                <img src="<%=pi[q]%>" alt="">
+                                <img src="<%=pi[q]%>" class="img_esp_cl">
                             </section>
 
                             <%
@@ -854,6 +854,13 @@
                 </section>
             </div>
         </form>
+        
+        <!--Fotografias-->
+        <div class="fot_most_esp" id="fot_most_esp">
+            <section class="img_esp_gr">
+                <img src="" id="img_esp_gr"/>
+            </section>
+        </div>
         <%
             c.close();
         %>
