@@ -1411,6 +1411,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     border-radius: 5px;
     font-weight: bold;
 }
+#img_esp_gr{
+    max-height: 450px;
+}
 @media screen and (max-width:1024px){
     .prestn_neg{
         height: 85vh;
