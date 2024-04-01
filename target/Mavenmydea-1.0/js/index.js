@@ -15,21 +15,22 @@ let divEspecifico = document.getElementById('producto_epecifico');
 let sin_like = document.getElementById("h_sc");
 let con_like = document.getElementById("h_cc");
 let slider_cup = document.getElementById("res_otr_usu");
+let link_my = document.getElementById("link-contact");
 
 document.getElementById('prev_lmn').addEventListener('click', function () {
-    slider_lmn.scrollBy({ left: -645, behavior: 'smooth' });
+    slider_lmn.scrollBy({left: -645, behavior: 'smooth'});
 });
 
 document.getElementById('next_lmn').addEventListener('click', function () {
-    slider_lmn.scrollBy({ left: 645, behavior: 'smooth' });
+    slider_lmn.scrollBy({left: 645, behavior: 'smooth'});
 });
 
 document.getElementById('prev_dtp').addEventListener('click', function () {
-    slider_dtp.scrollBy({ left: -645, behavior: 'smooth' });
+    slider_dtp.scrollBy({left: -645, behavior: 'smooth'});
 });
 
 document.getElementById('next_dtp').addEventListener('click', function () {
-    slider_dtp.scrollBy({ left: 645, behavior: 'smooth' });
+    slider_dtp.scrollBy({left: 645, behavior: 'smooth'});
 });
 
 divs_pro.forEach(function (div) {
@@ -74,4 +75,20 @@ divEspecifico.addEventListener("click", (e) => {
     if (e.target === divEspecifico) {
         divEspecifico.style.display = "none";
     }
+});
+
+var textoParaCopiar = link_my.getAttribute("data-bs-title");
+
+
+link_my.addEventListener("click", () => {
+    navigator.clipboard.writeText(textoParaCopiar).then(function () {
+        Swal.fire({
+            title: "DIRECCIÓN COPIADA EN PORTAPAPELES",
+            text: "Dirección copiado: " + textoParaCopiar,
+            icon: "success",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true
+        });
+    });
 });

@@ -11,11 +11,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-$(document).ready(function() {
-    $('#Busq_Pro_inp_n').on('keyup', function() {
-        var textoBusqueda = $(this).val().toLowerCase(); 
-        
-        $('#Cont_pr_most #card_pro_neg').each(function() {
+$(document).ready(function () {
+    $('#Busq_Pro_inp_n').on('keyup', function () {
+        var textoBusqueda = $(this).val().toLowerCase();
+
+        $('#Cont_pr_most #card_pro_neg').each(function () {
             var textoDiv = $(this).find('#tt_pro_most ').text().toLowerCase();
 
             if (textoDiv.includes(textoBusqueda)) {
@@ -207,7 +207,7 @@ divs_pro.forEach(function (div) {
 });
 
 //bruh
-let clicker_img = document.querySelectorAll(".card_pro_most");
+let clicker_img = document.querySelectorAll(".img_esp_cl");
 clicker_img.forEach(function (img) {
     img.addEventListener('click', function () {
         MotrarImg(this);
@@ -218,8 +218,14 @@ function MotrarImg(divClicado) {
     let destinoDiv = document.getElementById('fot_most_esp');
     let img = divClicado.src;
     destinoDiv.style.display = "flex";
-    destinoDiv.querySelector("#img_esp_gr").src = img;
+    destinoDiv.querySelector("#img_esp_gr").src = img;
 }
+let divFot = document.getElementById('fot_most_esp');
+divFot.addEventListener("click", (e) => {
+    if (e.target === divFot) {
+        divFot.style.display = "none";
+    }
+});
 
 var ordenOriginal = [];
 let contenedor = document.getElementById("Cont_pr_most");
@@ -232,14 +238,14 @@ select_dis.addEventListener('change', function () {
 
     divs_pro.forEach(function (div) {
         div.classList.remove('card_pro_most_active');
-        if (valorSeleccionado === "General") {
+        if (valorSeleccionado == "General") {
             div.classList.add('card_pro_most_active');
         }
     });
 
     divs_pro.forEach(function (div) {
         var input = div.querySelector('input');
-        if (input && input.value === valorSeleccionado) {
+        if (input && input.value == valorSeleccionado) {
             div.classList.add('card_pro_most_active');
         }
     });
@@ -401,9 +407,9 @@ let esc_res = document.getElementById("esc_res");
 let hacer_resena_neg = document.getElementById("hacer_resena_neg");
 let cancelar_resena_neg = document.getElementById("cancelar_resena_neg");
 
-esc_res.addEventListener("click", ()=>{
+esc_res.addEventListener("click", () => {
     hacer_resena_neg.style.display = "flex";
 });
-cancelar_resena_neg.addEventListener("click", ()=>{
+cancelar_resena_neg.addEventListener("click", () => {
     hacer_resena_neg.style.display = "none";
 });

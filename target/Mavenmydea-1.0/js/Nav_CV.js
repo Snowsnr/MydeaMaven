@@ -75,32 +75,3 @@ lgout_n.addEventListener("click", (event) => {
         }
     });
 });
-
-
-edt_h.addEventListener("click", () => {
-    window.location.href = "Editar_CuentaCV.jsp";
-});
-
-sav_h.addEventListener("click", () => {
-    window.location.href = "GuardadosCV.jsp";
-});
-
-lgout_h.addEventListener("click", () => {
-    Swal.fire({
-        title: "¿Está seguro de cerrar sesión?",
-        text: "Una vez que cierre sesión, deberá volver a iniciar sesión para acceder.",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "rgba(244, 55, 112, 0.8)",
-        cancelButtonColor: "#971A40",
-        confirmButtonText: "Aceptar",
-        cancelButtonText: "Cancelar"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // Aquí puedes agregar la lógica para cerrar la sesión
-            // Redirección o cualquier otra acción necesaria
-            // Por ejemplo: window.location.href = "logout.php";
-        }
-    });
-});
-

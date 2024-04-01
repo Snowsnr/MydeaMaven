@@ -522,24 +522,20 @@
                 <form class="d-flex flex-column" id="Productos_Neg">
                     <span class="tittle_n">Productos</span>
                     <div class="w-100 products_div_n justify-content-between d-flex">
-                        <div class="d-flex flex-column justify-content-between sp_div_n" >
+                        <div class="flex-column justify-content-between sp_div_n">
                             <img src="<%=logo%>" alt="" id="img_L_pr">
                             <button type="button" class="btn btn_sp btn_active btn_general"
                                     id="general_most">General</button>
-                            <button type="button" class="btn btn_sp sp_div_n_desactive" id="precios_most">Mejores
-                                Precios</button>
-                            <button type="button" class="btn btn_sp sp_div_n_desactive" id="calif_most">Mejores
-                                Calificados</button>
-                            <button type="button" class="btn btn_sp sp_div_n_desactive">Nuevos Productos</button>
-                            <button type="button" class="btn btn_sp sp_div_n_desactive">Productos Antiguos</button>
-                            <button type="button" class="btn btn_sp sp_div_n_desactive" id="comen_most">Más
-                                Comentados</button>
+                            <button type="button" class="btn btn_sp sp_div_n_desactive" id="precios_most_mn">Menor a Mayor Precio</button>
+                            <button type="button" class="btn btn_sp sp_div_n_desactive" id="precios_most_nm">Mayor a Menor Precio</button>
+                            <button type="button" class="btn btn_sp sp_div_n_desactive" id="pro_most_nue">Nuevos Productos</button>
+                            <button type="button" class="btn btn_sp sp_div_n_desactive" id="pro_most_ant">Productos Antiguos</button>
                             <select class="select_sp" id="select_sp">
                                 <option selected disabled hidden>Disponibilidad</option>
                                 <option value="Disponible en todo momento">Disponible en todo momento</option>
-                                <option value="Por pedido">Por pedido</option>
+                                <option value="Por Pedido">Por pedido</option>
                                 <option value="Mayoreo">Mayoreo</option>
-                                <option value="Solo por unidad">Solo por unidad</option>
+                                <option value="Solo por Unidad">Solo por unidad</option>
                                 <option value="Disponible por un tiempo">Disponible por un tiempo</option>
                                 <option value="Proximamente">Próximamente</option>
                                 <option value="General">General</option>
@@ -550,7 +546,7 @@
                                 <input type="text" class="form-control" placeholder="Buscar un producto específico" id="Busq_Pro_inp_n">
                             </section>
 
-                            <section class="Mostrar_Productos d-flex flex-column justify-content-between">
+                            <section class="Mostrar_Productos">
                                 <span class="Mostrar_Productos_busq">Mostrar Productos: "<span
                                         id="Busqueda_pro">General</span>"</span>
                                 <div class="Productos_most" id="Cont_pr_most">
@@ -585,20 +581,17 @@
 
                                     %>
 
-                                    <section class="card_pro_most card_pro_most_active" id="pro">
-                                        <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
-                                        <img src="<%=pi[y]%>" class="card-img-top img_most" alt="..." id="card-img-top">
-                                        <div class="card-body d-flex flex-column">
-                                            <div
-                                                class="d-flex w-100 justify-content-between align-items-lg-center pr_inf_n">
-                                                <span class="pre_sl d-flex">$<div class="pre_most_pro"
-                                                                                  id="pre_most_pro"><%=pre%></div>
-                                                </span>
+                                    <section class="card_pro_most card_pro_most_active" id="card_pro_neg">
+                                        <span class="pre_sl">$<div class="pre_most_pro" id="pre_most_pro"><%=pre%>
                                             </div>
-                                            <span class="card-text" id="desc_com_pro"><%=pd%></span>
-                                        </div>
+                                        </span>
+                                        <img src="<%=pi[y]%>" class="card-img-top img_most" alt="..." id="card-img-top">
                                         <input type="text" class="dis_most_pro" value="<%=dis%>" disabled>
+                                        <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
+                                        <span class="card-text dis_most_pro" id="desc_com_pro"><%=pd%></span>
                                     </section>
+
+
 
                                     <%
                                             y = y + 1;
@@ -618,13 +611,13 @@
                     </section>
                     <div class="most_img_div">
                         <section class="imgneg">
-                            <img src="<%=imagen1%>" alt="">
+                            <img src="<%=imagen1%>" class="img_esp_cl">
                         </section>
                         <section class="imgneg">
-                            <img src="<%=imagen2%>" alt="">
+                            <img src="<%=imagen2%>" class="img_esp_cl">
                         </section>
                         <section class="imgneg">
-                            <img src="<%=imagen3%>" alt="">
+                            <img src="<%=imagen3%>" class="img_esp_cl">
                         </section>
 
                         <%
@@ -635,7 +628,7 @@
                         %>
 
                         <section class="imgpro">
-                            <img src="<%=pi[q]%>" alt="">
+                            <img src="<%=pi[q]%>" class="img_esp_cl">
                         </section>
 
                         <%
@@ -975,129 +968,94 @@
             </section>
         </div>
     </form>
+
+    <!--Fotografias-->
+    <div class="fot_most_esp" id="fot_most_esp">
+        <section class="img_esp_gr">
+            <img src="" id="img_esp_gr"/>
+            <span>Si desea salir de click fuera de la imagen.</span>
+        </section>
+    </div>
+
     <script>
 
         let esc_res = document.getElementById("esc_res");
         let hacer_resena_neg = document.getElementById("hacer_resena_neg");
         let cancelar_resena_neg = document.getElementById("cancelar_resena_neg");
-
         esc_res.addEventListener("click", () => {
-            hacer_resena_neg.style.display = "flex";
+        hacer_resena_neg.style.display = "flex";
         });
         cancelar_resena_neg.addEventListener("click", () => {
-            hacer_resena_neg.style.display = "none";
+        hacer_resena_neg.style.display = "none";
         });
-
-                    <li>
-                        <input type="radio" name="IED" id="IED" value="Información erronea o desactualizada"
-                               class="Option_R"><label for="IED">Información erronea o desactualizada</label>
-                    </li>
-                    <li>
-                        <input type="radio" name="PST" id="PST" value="Productos o servicios que fomenten el terrorismo"
-                               class="Option_R"><label for="PST">Productos o servicios que fomenten el terrorismo</label>
-                    </li>
-                    <li>
-                        <input type="radio" name="PSM" id="PSM"
-                               value="Productos o servicios que involucren el maltrato o abuso de personas"
-                               class="Option_R"><label for="PSM">Productos o servicios que involucren el maltrato o abuso de
-                            personas</label>
-                    </li>
-                    <li>
-                        <input type="radio" name="PSE" id="PSE" value="Productos o servicios engañosos"
-                               class="Option_R"><label for="PSE">Productos o servicios engañosos</label>
-                    </li>
-                    <li>
-                        <input type="radio" name="RUP" id="RUP" value="Usuario Peligroso" class="Option_R"><label
-                            for="RUP">Usuario Peligroso</label>
-                    </li>
-                    <li>
-                        <input type="radio" name="PSP" id="PSP" value="Pesimos Servicios o Productos"
-                               class="Option_R"><label for="PSP">Pesimos Servicios o Productos</label>
-                    </li>
-                    <li>
-                        <input type="radio" name="OTH" id="OTH" value="Otro" class="Option_R"><label for="OTH">Otro</label>
-                    </li>
-                </ul>
-                <section class="Formalario_R" id="Input_Form">
-                    <textarea class="Input_Form" placeholder="Por favor especifique la razon de su reporte"></textarea>
-                </section>
-                <section class="Botones_Reporte">
-                    <button id="Cancelar_R" type="button">Cancelar</button>
-                    <button id="Continuar_R" type="button">Siguiente</button>
-                    <button id="Regresar" class="Regresar" type="button"><i class="bi bi-arrow-bar-left"></i>
-                        Regresar</button>
-                    <button id="Enviar_R" class="Enviar_R" type="submit">Enviar Reporte</button>
-                </section>
-            </div>
-        </form>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script>
-                                    
+    <script>
+
 let esc_res = document.getElementById("esc_res");
 let hacer_resena_neg = document.getElementById("hacer_resena_neg");
 let cancelar_resena_neg = document.getElementById("cancelar_resena_neg");
-
-esc_res.addEventListener("click", ()=>{
-    hacer_resena_neg.style.display = "flex";
-});
-cancelar_resena_neg.addEventListener("click", ()=>{
-    hacer_resena_neg.style.display = "none";
-});
-
-                                    </script>
-        <%
-            c.close();
-        %>
-
-        <script>
-            // Activar todos los tooltips
-            var tooltips = new bootstrap.Tooltip(document.body, {
-                selector: '[data-bs-toggle="tooltip"]',
-            });
-        </script>
-        <%
-            if (request.getAttribute("mensaje") != null)
-            {
-            
-                if(request.getAttribute("mensaje").equals("Ya has guardado este negocio")){
-        %>          
-        <script>
-            
-       Swal.fire({
-  icon: "error",
-  title: "<%=request.getAttribute("mensaje")%>",
-  showConfirmButton: false,
-  timer: 5000
-});
-    
-        </script>      
-        <%
-            }else{
-%>          
-        <script>
-            
-       Swal.fire({
-  icon: "success",
-  title: "<%=request.getAttribute("mensaje")%>",
-  showConfirmButton: false,
-  timer: 5000
-});
-    
-        </script>      
-        <%
-
-}
-            }
-        %>
-                                                <%
-            }else{
-    System.out.println("Error: Sesión no existe");
-    response.sendRedirect("index.jsp");
-}
-            %>
-        <script src="js/Nav.js"></script>
-        <script src="js/negocio.js"></script>
-        <script src="js/cu.js"></script>
+         
+         esc_res.addEve nt Listene r( "click", ()=>{
+        hacer_resena_neg.style.display = "flex";
+        });
+        cancelar_resena_neg.ad  dE  ventListe ne r("click", ()=>{
+                hacer_resena_neg.style.display = "none";
+        });
         
-    </body>
-</html>
+        </script>
+    <%
+        c.close();
+    %>
+
+        <script>
+            // Activar todos los tooltips         var tooltips = new bootstrap.Tooltip(document.body, {
+                selector: '[data-bs-toggle="tooltip"]',
+        });
+        </script>
+            <%
+                if (request.getAttribute("mensaje") != null)
+                {
+
+                    if (request.getAttribute("mensaje").equals("Ya has guardado este negocio"))
+                    {
+            %>          
+        <script>
+        
+        Swal.fire({
+                icon: "error",
+                title: "<%=request.getAttribute("mensaje")%>",
+                showConfirmButton: false,
+                timer: 5000
+        });
+        </script>      
+                    <%
+                    } else
+                    {
+                    %>          
+        <script>
+            Swal.fire({
+                icon: "success",
+                title: "<%=request.getAttribute("mensaje")%>",
+                showConfirmButton: false,
+                timer: 5000
+            });
+            
+            </script>      
+                    <%
+
+                            }
+                        }
+                    %>
+                    <%
+                        } else
+                        {
+                            System.out.println("Error: Sesión no existe");
+                            response.sendRedirect("index.jsp");
+                        }
+                    %>
+                    <script src="js/Nav.js"></script>
+                    <script src="js/negocio.js"></script>
+                    <script src="js/cu.js"></script>
+
+                </body>
+            </html>

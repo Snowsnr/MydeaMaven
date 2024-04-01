@@ -36,6 +36,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   align-items: center;
   justify-content: center;
 }
+.contacts-section1 a{
+    color: white;
+}
 .contacts-footer {
   display: flex;
   align-items: center;
@@ -125,4 +128,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   color: white;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 0.7rem;
+}
+.contacts-footer section a{
+    text-decoration: none;
+    color: white;
+}
+.contacts-footer section svg{
+    color: white;
 }
