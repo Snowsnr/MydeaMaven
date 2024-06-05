@@ -87,13 +87,7 @@ let nue_img = document.getElementById("nimg_most");
 let inpt_file_img_perf = document.getElementById("inpt_file_img_perf");
 let icon_img_most = document.getElementById("icon_img_most");
 
-nue_img.addEventListener("click", () => {
-    inpt_file_img_perf.click();
-});
 
-icon_img_most.addEventListener("click", () => {
-    inpt_file_img_perf.click();
-});
 
 document.addEventListener('DOMContentLoaded', function () {
     let inpt_tel = document.getElementById('inpt_tel');
@@ -156,25 +150,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 showConfirmButton: true
             });
             e.target.value = '';
-            inpt_file_img_perf.src = ''; // Borra la previsualización de la imagen
+            nue_img.src = ''; // Borra la previsualización de la imagen
             return false;
         } else {
             showPreviewImage(e); // Si es una imagen, muestra la previsualización
         }
     });
 
-    inpt_file_img_perf.addEventListener("click", function () {
+    icon_img_most.addEventListener("click", function () {
         inpt_file_img_perf.click();
     });
 
     function showPreviewImage(event) {
-        inpt_file_img_perf.style.display = "flex";
-        inpt_file_img_perf.style.position = "absolute";
+        nue_img.style.display = "flex";
+        icon_img_most.style.position = "absolute";
         const file = event.target.files[0];
         const reader = new FileReader();
 
         reader.onload = function (event) {
-            inpt_file_img_perf.src = event.target.result;
+            nue_img.src = event.target.result;
         };
 
         if (file) {

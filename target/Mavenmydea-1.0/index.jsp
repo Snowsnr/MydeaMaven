@@ -269,7 +269,7 @@
                 <%
                     ResultSet pr;
 
-                    String sl = "select p.*, d.dis_nombre from Producto p inner join Disponibilidad d on p.dis_id=d.dis_id inner join Negocio n on p.neg_id = n.neg_id where"
+                    String sl = "select p.*, d.dis_nombre, n.neg_id from Producto p inner join Disponibilidad d on p.dis_id=d.dis_id inner join Negocio n on p.neg_id = n.neg_id where"
                             + " n.neg_activo=true;";
 
                     pr = stmt.executeQuery(sl);
@@ -281,6 +281,7 @@
                         String pi = pr.getString("pro_imagen");
                         String dis = pr.getString("dis_nombre");
                         String pd = pr.getString("pro_descripcion");
+                        int id =  pr.getInt("neg_id");
                 %>
                 <section class="card_pro_most card_pro_most_active">
                     <span class="pre_sl">$<div class="pre_most_pro" id="pre_most_pro"><%=pre%>
@@ -289,7 +290,7 @@
                     <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
                     <img src="<%=pi%>" class="card-img-top img_most" alt="..." id="card-img-top">
                     <input type="text" class="dis_most_pro" value="<%=dis%>" disabled>
-                    <input type="hidden" id="id_neg_pro_most" value="" disabled>
+                    <input type="hidden"  id="id_neg_pro_most" value="<%=id%>" disabled>
                     <span class="card-text dis_most_pro" id="desc_com_pro"><%=pd%></span>
                 </section>
                 <%
@@ -430,8 +431,8 @@
                                 facere vitae.</span>
                             <span id="pre_pro_esp">$000000.00</span>
                             <span id="dis_pro_esp">Disponibilidad</span>
-                            <form action="" method="post">
-                                <input type="hidden" value="" disabled id="neg_id_viz">
+                            <form action="NegocioSC.jsp" method="post">
+                                <input type="hidden" id="neg_id_viz" name="idn" value=""/>
                                 <button type="submit" id="vis_neg_btn">Visitar Negocio que lo ofrece</button>
                             </form>
                         </section>

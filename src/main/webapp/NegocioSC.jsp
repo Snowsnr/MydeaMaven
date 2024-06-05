@@ -27,7 +27,7 @@
         String foto = per.getPer_foto();
              */
             String id = request.getParameter("idn");
-
+            
             Conexion con;
             Connection c;
             Statement stmt;
