@@ -23,11 +23,10 @@
     <body class="index">
         <jsp:include page="templates/Navegadores/Navegador_CA.jsp"/>
         <%
-    HttpSession session1 = request.getSession(false);
-    if (session1.getAttribute("usuario") != null)
-    {
+            HttpSession session1 = request.getSession(false);
+            if (session1.getAttribute("usuario") != null) {
 
-%>
+        %>
         <%            Conexion con;
             Connection c;
             Statement stmt;
@@ -52,8 +51,7 @@
             String[] img2 = new String[3];
             int[] idg = new int[7];
 
-            while (r.next())
-            {
+            while (r.next()) {
 
                 nombreg[k] = r.getString("neg_nombre");
                 dd[k] = r.getString("neg_descripcion");
@@ -78,11 +76,6 @@
                                         <input type="hidden" name="idn" value="<%=idg[0]%>"/>
                                         <button type="submit" class="btn btn_exp">Explorar</button>
                                     </form>
-                                    <form action="EliminarNegocioA" class="form_elim">
-                                        <input type="hidden" name="" value=""/>
-                                        <input type="hidden" class="name_elim" name="idn" value="<%=idg[0]%>"/>
-                                        <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Negocio</button>
-                                    </form>
                                 </section>
                             </section>
                         </section>
@@ -103,11 +96,6 @@
                                         <input type="hidden" name="idn" value="<%=idg[1]%>"/>
                                         <button type="submit" class="btn btn_exp">Explorar</button>
                                     </form>
-                                    <form action="EliminarNegocioA" class="form_elim">
-                                        <input type="hidden" name="" value=""/>
-                                        <input type="hidden" class="name_elim" name="idn" value="<%=idg[1]%>"/>
-                                        <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Negocio</button>
-                                    </form>
                                 </section>
                             </section>
                         </section>
@@ -127,11 +115,6 @@
                                     <form action="NegociosCA.jsp">
                                         <input type="hidden" name="idn" value="<%=idg[2]%>"/>
                                         <button type="submit" class="btn btn_exp">Explorar</button>
-                                    </form>
-                                    <form action="EliminarNegocioA" class="form_elim">
-                                        <input type="hidden" name="" value=""/>
-                                        <input type="hidden" class="name_elim" name="idn" value="<%=idg[2]%>"/>
-                                        <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Negocio</button>
                                     </form>
                                 </section>
                             </section>
@@ -200,7 +183,7 @@
                 </section>
             </section>
         </div>
-        
+
         <!--LOS MEJORES NEGOCIOS-->
         <div class="padd_lds">
             <svg class="svg_ft_lmn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 186 186" preserveAspectRatio="none" width="100%" height="100%">
@@ -300,6 +283,7 @@
                     <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
                     <img src="<%=pi%>" class="card-img-top img_most" alt="..." id="card-img-top">
                     <input type="text" class="dis_most_pro" value="<%=dis%>" disabled>
+                    <input type="hidden" id="id_neg_pro_most" value="" disabled>
                     <span class="card-text dis_most_pro" id="desc_com_pro"><%=pd%></span>
                 </section>
                 <%
@@ -440,10 +424,9 @@
                             possimus
                             facere vitae.</span>
                         <span id="dis_pro_esp">Disponibilidad</span>
-                        <form action="EliminarProductoA" class="form_elim">
-                            <input type="hidden" name="idp" value=""/>
-                            <input type="hidden" class="name_elim" value="ESTE PRODUCTO"/>
-                            <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Producto</button>
+                        <form action="" method="post">
+                            <input type="hidden" value="" disabled id="neg_id_viz">
+                            <button type="submit" id="vis_neg_btn">Visitar Negocio que lo ofrece</button>
                         </form>
                     </section>
                 </div>
@@ -461,29 +444,27 @@
         });
     </script>
     <%
-            if(request.getAttribute("mensaje")!=null) 
-            {  
-        %>          
-                <script>
-    window.onload=function() {
-       Swal.fire({
-  icon: "success",
-  title: "<%=request.getAttribute("mensaje")%>",
-  showConfirmButton: false,
-  timer: 5000
-});
-    };
- </script>      
-        <%
-            }
-                %>
-                <%
-                        } else
-                        {
-                            System.out.println("Error: Sesión no existe");
-                            response.sendRedirect("index.jsp");
-                        }
-                    %>
+        if (request.getAttribute("mensaje") != null) {
+    %>          
+    <script>
+        window.onload = function () {
+            Swal.fire({
+                icon: "success",
+                title: "<%=request.getAttribute("mensaje")%>",
+                showConfirmButton: false,
+                timer: 5000
+            });
+        };
+    </script>      
+    <%
+        }
+    %>
+    <%
+        } else {
+            System.out.println("Error: Sesión no existe");
+            response.sendRedirect("index.jsp");
+        }
+    %>
     <script src="js/Nav.js"></script>
     <script src="js/index.js"></script>
     <script src="js/elim.js"></script>

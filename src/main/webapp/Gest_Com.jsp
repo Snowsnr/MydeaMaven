@@ -28,13 +28,8 @@
                 <div class="fltr_tickets" id="fltr_tickets">
                     <section class="busq_admin_acc">
                         <input class="form-control bus_admin_acc" id="bus_admin_acc" type="text"
-                               placeholder="Buscar Usuario">
+                               placeholder="Buscar Usuario que Comentó">
                         <i class="bi bi-search text-white"></i>
-                    </section>
-                    <section class="opt_admin" id="opt_usu">
-                        <button id="">Con Like</button>
-                        <button id="">Sin Like</button>
-                        <button id="">Cualquiera</button>
                     </section>
                     <section class="opt_admin">
                         <select class="select_adm" id="filtr_est">
@@ -46,7 +41,7 @@
                     </section>
                 </div>
             </div>
-            <div class="tickets_container" id="tickets_container">
+            <div class="tickets_container container_admin" id="tickets_container">
 
                 <%                    Conexion con;
                     Connection c;
@@ -73,12 +68,13 @@
                 %>
                 <!-- Comentarios -->
                 <section class="busq_result" id="busq_result_com">
+                    <input type="hidden" name="name" value="<%=activo%>" id="inp_activo">
                     <input class="d-none" id="fecha_inp_busq" type="date" disabled value="2007-04-20">
                     <input class="d-none" type="text" id="nom_neg_com" disabled value="Nombre del negocio que ah comentado">
                     <img src="src" class="d-none" alt="Logo del negocio que comento" id="log_neg_com"/>
                     <section class="resena_usua_esp d-flex flex-column" id="resena_usua_admin">
                         <section class="comentario_n">
-                            <span id="nom_usu_com"><%=nomu%></span>
+                            <span class="busqueda_nombre" id="nom_usu_com"><%=nomu%></span>
                             <img src="<%=ft%>" alt="Img de perfil del usuario" id="img_perf_com">
                         </section>
                         <span class="texto_res_usu" id="coment_desc"><%=comentario%></span>
@@ -148,5 +144,6 @@
                 response.sendRedirect("index.jsp");
             }
         %>
+        <script src="js/busqueda_nombre.js"></script>
     </body>
 </html>

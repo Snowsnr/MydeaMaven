@@ -996,7 +996,7 @@ nav {
 }
 .img_pro_mosr_espe{
     position: absolute;
-    top: 8.9%;
+    top: 7.6%;
     right: 0%;
     height: 90%;
     width: 48%;
@@ -1100,6 +1100,21 @@ nav {
 #tt_pro_most{
     width: 100%;
     text-align: center;
+}
+#vis_neg_btn{
+    border: 3px solid var(--line);
+    padding: 8px;
+    background: none;
+    border-radius: 25px;
+    transition: 0.2s;
+    width: 80%;
+    font-weight: bold;
+}
+#vis_neg_btn:hover{
+    transition: 0.2s;
+    background: var(--line);
+    color: white;
+    transform: scale(1.05);
 }
 @media screen and (max-width:1024px){
     #carouselExampleInterval{

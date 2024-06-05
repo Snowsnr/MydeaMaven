@@ -7,26 +7,6 @@ let lgout_n = document.getElementById("btn_lgout_nav");
 let fomr = document.getElementById("formcerrar");
 let accadm = document.getElementById("btn_admin");
 
-count_n.addEventListener("click", () => {
-    window.location.href = "Cuenta_Usuario.jsp";
-});
-
-count2_n.addEventListener("click", () => {
-    window.location.href = "Cuenta_Usuario.jsp";
-});
-
-edt_n.addEventListener("click", () => {
-    window.location.href = "Editar_Cuenta.jsp";
-});
-
-sav2_n.addEventListener("click", () => {
-    window.location.href = "GuardadosCA.jsp";
-});
-
-res_n.addEventListener("click", () => {
-    window.location.href = "Comentarios_Hechos.jsp";
-});
-
 accadm.addEventListener("click", ()=>{
     window.location.href = "Acciones_Admin.jsp";
 });

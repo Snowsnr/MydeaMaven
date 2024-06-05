@@ -137,7 +137,7 @@
 
         %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <jsp:include page="templates/Referencias/Todas_Ref.jsp"/>
+        <jsp:include page="templates/Referencias/Ref_Admin.jsp"/>
         <title><%=nombre%> - MYDEA</title>
     </head>
     <body class="nego_neg">

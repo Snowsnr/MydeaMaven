@@ -12,7 +12,7 @@
         <div class="col-xl-2 col-lg-2 d-flex">
             <a href="index.jsp"><img src="assets/logo_mydea_comida.png" alt="logotipo" class="logo"></a>
         </div>
-        <div class="col-xl-4 col-lg-4 div_buscador" id="div_buscador">
+        <div class="col-xl-6 col-lg-6 div_buscador" id="div_buscador">
             <form class="d-flex buscador" method="post" action="Buscador.jsp" >
                 <input class="form-control input_search" placeholder="Buscar... (Cafeterias, Abarrotes, Snacks)"
                        aria-label="Search" name="txt" >
@@ -22,16 +22,12 @@
                 <i class="fa-solid fa-x"></i>
             </button>
         </div>
-        <div class="col-xl-2 col-lg-2 d-flex justify-content-center">
-            <button type="button" class="btn btn-outline-dark btn_negro large" id="btn_negypro">Negocios y
-                Productos</button>
-        </div>
-        <div class="d-flex col-xl-6 col-lg-6 div_botones">
+        <div class="d-flex col-xl-4 col-lg-4 div_botones">
             <div class="col-xl-2 col-lg-2 logo_mobile">
                 <a href="index.jsp"><img src="assets/Logo_Icon.png" alt="logotipo" ></a>
                 <a href="index.jsp"><img src="assets/logo_mydea_comida.png" alt="logotipo" ></a>
             </div>
-            <div class="col-xl-6 col-lg-6 d-flex justify-content-evenly">
+            <div class="col-xl-10 col-lg-10 d-flex justify-content-evenly">
                 <button type="button" class="btn btn-outline-dark btn_negro btn_negro_responsive" id="btn_acceder">Acceder</button>
                 <button type="button" class="btn btn_rosa text-white btn_rosa_responsive" id="btn_registro">Registrarse</button>
             </div>

@@ -6,17 +6,12 @@ let fbk_nav = document.getElementById("btn_fbk_nav");
 let sb_nav = document.getElementById("btn_sb_nav");
 
 
-mneg_nav.addEventListener("click", ()=>{
+mneg_nav.addEventListener("click", () => {
     window.location.href = "Vendedor_Perfil.jsp";
 });
 
-mneg_nav2.addEventListener("click", ()=>{
+mneg_nav2.addEventListener("click", () => {
     window.location.href = "Vendedor_Perfil.jsp";
-});
-
-
-fbk_nav.addEventListener("click", ()=>{
-    window.location.href = "Feedback.jsp";
 });
 
 sb_nav.addEventListener("click", () => {
@@ -59,7 +54,7 @@ res_n.addEventListener("click", () => {
 });
 
 lgout_n.addEventListener("click", (event) => {
-     event.preventDefault();
+    event.preventDefault();
     Swal.fire({
         title: "¿Está seguro de cerrar sesión?",
         text: "Una vez que cierre sesión, deberá volver a iniciar sesión para acceder.",

@@ -31,11 +31,6 @@
                                placeholder="Buscar Usuario">
                         <i class="bi bi-search text-white"></i>
                     </section>
-                    <section class="opt_admin" id="opt_usu">
-                        <button id="">Usuarios</button>
-                        <button id="">Vendedores</button>
-                        <button id="">Cualquiera</button>
-                    </section>
                     <section class="opt_admin">
                         <select class="select_adm" id="filtr_est">
                             <option selected disabled hidden>Filtrar por Estado</option>
@@ -46,52 +41,49 @@
                     </section>
                 </div>
             </div>
-            <div class="tickets_container" id="tickets_container">
-                
-                <%
-                    Conexion con;
-                        Connection c;
-                        Statement stmt;
-                        ResultSet rs;
-                
-                               con = new Conexion();
-                        con.setCon();
-                        c = con.getCon();
-                        stmt = c.createStatement();
-                        String sql="SELECT p.per_foto, p.per_descripcion, u.usu_id, u.usu_nombre, u.usu_activo, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id";
-                        rs = stmt.executeQuery(sql);
-                        if (rs != null)
-                        {
-                            while (rs.next())
-                            {
+            <div class="tickets_container container_admin" id="tickets_container">
 
-                                String unom = rs.getString("usu_nombre");
-                                String pfoto = rs.getString("per_foto");
-                                String descripcion = rs.getString("per_descripcion");
-                                int pid = rs.getInt("usu_id");
-                                int tipo = rs.getInt("tip_id");
-                                boolean activo = rs.getBoolean("usu_activo");
+                <%                    Conexion con;
+                    Connection c;
+                    Statement stmt;
+                    ResultSet rs;
 
-                                if (tipo == 1)
-                                {
-                    %>
+                    con = new Conexion();
+                    con.setCon();
+                    c = con.getCon();
+                    stmt = c.createStatement();
+                    String sql = "SELECT p.per_foto, p.per_descripcion, u.usu_id, u.usu_nombre, u.usu_activo, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id";
+                    rs = stmt.executeQuery(sql);
+                    if (rs != null) {
+                        while (rs.next()) {
 
-                    <!-- Usuario Normal -->
+                            String unom = rs.getString("usu_nombre");
+                            String pfoto = rs.getString("per_foto");
+                            String descripcion = rs.getString("per_descripcion");
+                            int pid = rs.getInt("usu_id");
+                            int tipo = rs.getInt("tip_id");
+                            boolean activo = rs.getBoolean("usu_activo");
+
+                            if (tipo == 1) {
+                %>
+
+                <!-- Usuario Normal -->
                 <section class="busq_result busq_usu nr" id="busq_usu_adm">
+                    <input type="hidden" name="name" value="<%=activo%>" id="inp_activo">
                     <img src="<%=pfoto%>" class="usunr_img" id="usu_img_busq">
                     <section class="info_usu_nusq usu_nr" id="usu_nr">
-                        <span class="nb_busq nb"><%=unom%></span>
+                        <span class="nb_busq nb busqueda_nombre"><%=unom%></span>
                         <span class="dir_bus w-100 desc_busq" id="desc_busq_usu"><%=descripcion%></span>
                         <section class="sect_btns_adminusu">
                             <%
-                            if(activo==true){
+                                if (activo == true) {
                             %>
                             <form action="EliminarUsuario">
                                 <button id="baja_usu">Dar de baja al Usuario <i class="bi bi-person-x"></i></button>
                                 <input type="hidden" id="idu" name="idu" value="<%=pid%>"/>
                             </form>
                             <%
-                                }else{
+                            } else {
                             %>
                             <form action="RecuperarUsuario">
                                 <button id="baja_usu">Dar de alta al Usuario <i class="bi bi-person-fill-up"></i></button>
@@ -105,28 +97,28 @@
                     </section>
                 </section>
 
-                    <%
-                    } else if (tipo == 2)
-                    {
-                    %>
+                <%
+                } else if (tipo == 2) {
+                %>
 
-                     <!-- Usuario Vendedor -->
+                <!-- Usuario Vendedor -->
                 <section class="busq_result busq_usu" id="busq_usu_adm" >
+                    <input type="hidden" name="name" value="<%=activo%>" id="inp_activo">
                     <img src="<%=pfoto%>" class="usuvd_img" id="usu_img_busq">
                     <section class="info_usu_nusq usu_vd" id="vend_nr">
-                        <span class="nb_busq nb">Vendedor <%=unom%></span>
+                        <span class="nb_busq nb">Vendedor <span class="busqueda_nombre"><%=unom%></span></span>
                         <span class="dir_bus w-100 desc_busq" id="desc_busq_usu"><%=descripcion%></span>
                         <i class="bi bi-shop uservd_icon"></i>
                         <section class="sect_btns_adminusu">
                             <%
-                            if(activo==true){
+                                if (activo == true) {
                             %>
                             <form action="EliminarUsuario">
                                 <button id="baja_usu">Dar de baja al Vendedor <i class="bi bi-person-x"></i></button>
                                 <input type="hidden" id="idu" name="idu" value="<%=pid%>"/>
                             </form>
                             <%
-                                }else{
+                            } else {
                             %>
                             <form action="RecuperarUsuario">
                                 <button id="baja_usu">Dar de alta al Usuario <i class="bi bi-person-fill-up"></i></button>
@@ -139,44 +131,44 @@
                     </section>
                 </section>
 
-                    <%
-                                }
+                <%
                             }
                         }
+                    }
 
-c.close();
-                    %>
-                
-                
-                
-                
-               
-                
+                    c.close();
+                %>
+
+
+
+
+
+
             </div>
         </div>
-                    <%
-            if(request.getAttribute("mensaje")!=null) 
-            {  
+        <%
+            if (request.getAttribute("mensaje") != null) {
         %>          
-                <script>
-    window.onload=function() {
-       Swal.fire({
-  icon: "success",
-  title: "<%=request.getAttribute("mensaje")%>",
-  showConfirmButton: false,
-  timer: 5000
-});
-    };
- </script>      
+        <script>
+            window.onload = function () {
+                Swal.fire({
+                    icon: "success",
+                    title: "<%=request.getAttribute("mensaje")%>",
+                    showConfirmButton: false,
+                    timer: 5000
+                });
+            };
+        </script>      
         <%
             }
-                %>
+        %>
         <script src="js/edipro.js"></script>
-                <%
+        <%
             } else {
                 System.out.println("Error: Sesión no existe");
                 response.sendRedirect("index.jsp");
             }
         %>
+        <script src="js/busqueda_nombre.js"></script>
     </body>
 </html>

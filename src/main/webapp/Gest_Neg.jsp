@@ -29,25 +29,20 @@
                 <div class="fltr_tickets" id="fltr_tickets">
                     <section class="busq_admin_acc">
                         <input class="form-control bus_admin_acc" id="bus_admin_acc" type="text"
-                               placeholder="Buscar Usuario">
+                               placeholder="Buscar Negocio">
                         <i class="bi bi-search text-white"></i>
-                    </section>
-                    <section class="opt_admin" id="opt_usu">
-                        <button id="">Usuarios</button>
-                        <button id="">Vendedores</button>
-                        <button id="">Cualquiera</button>
                     </section>
                     <section class="opt_admin">
                         <select class="select_adm" id="filtr_est">
                             <option selected disabled hidden>Filtrar por Estado</option>
-                            <option value="true">Usuario Activo</option>
+                            <option value="true">Negocio Activo</option>
                             <option value="false">De Baja</option>
                             <option value="General">Cualquiera</option>
                         </select>
                     </section>
                 </div>
             </div>
-            <div class="tickets_container" id="neg_container_admin">
+            <div class="tickets_container container_admin" id="neg_container_admin">
                 <%
                         Conexion con;
                         Connection c;
@@ -140,9 +135,10 @@
                  %>
                 <!-- Novedad -->
                 <section class="busq_result busq_neg" id="negbusq">
+                    <input type="hidden" name="name" value="<%=activo%>" id="inp_activo">
                     <section class="neg_bus_pre">
                         <img class="img_neg_busq" src="<%=img%>" alt="" id="img_loc_busq">
-                        <span class="nb_busq nb" id="nb_busq"><%=nombre%></span>
+                        <span class="nb_busq nb busqueda_nombre" id="nb_busq"><%=nombre%></span>
                     </section>
                     <div class="line_neg_busq"></div>
                     <section class="d-flex desc_bus">
@@ -208,5 +204,6 @@
                 response.sendRedirect("index.jsp");
             }
         %>
+        <script src="js/busqueda_nombre.js"></script>
     </body>
 </html>
