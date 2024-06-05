@@ -76,11 +76,6 @@
                                         <input type="hidden" name="idn" value="<%=idg[0]%>"/>
                                         <button type="submit" class="btn btn_exp">Explorar</button>
                                     </form>
-                                    <form action="EliminarNegocioA" class="form_elim">
-                                        <input type="hidden" name="" value=""/>
-                                        <input type="hidden" class="name_elim" name="idn" value="<%=idg[0]%>"/>
-                                        <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Negocio</button>
-                                    </form>
                                 </section>
                             </section>
                         </section>
@@ -101,11 +96,6 @@
                                         <input type="hidden" name="idn" value="<%=idg[1]%>"/>
                                         <button type="submit" class="btn btn_exp">Explorar</button>
                                     </form>
-                                    <form action="EliminarNegocioA" class="form_elim">
-                                        <input type="hidden" name="" value=""/>
-                                        <input type="hidden" class="name_elim" name="idn" value="<%=idg[1]%>"/>
-                                        <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Negocio</button>
-                                    </form>
                                 </section>
                             </section>
                         </section>
@@ -125,11 +115,6 @@
                                     <form action="NegociosCA.jsp">
                                         <input type="hidden" name="idn" value="<%=idg[2]%>"/>
                                         <button type="submit" class="btn btn_exp">Explorar</button>
-                                    </form>
-                                    <form action="EliminarNegocioA" class="form_elim">
-                                        <input type="hidden" name="" value=""/>
-                                        <input type="hidden" class="name_elim" name="idn" value="<%=idg[2]%>"/>
-                                        <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Negocio</button>
                                     </form>
                                 </section>
                             </section>
@@ -442,11 +427,6 @@
                         <form action="" method="post">
                             <input type="hidden" value="" disabled id="neg_id_viz">
                             <button type="submit" id="vis_neg_btn">Visitar Negocio que lo ofrece</button>
-                        </form>
-                        <form action="EliminarProductoA" class="form_elim">
-                            <input type="hidden" name="idp" value=""/>
-                            <input type="hidden" class="name_elim" value="ESTE PRODUCTO"/>
-                            <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Producto</button>
                         </form>
                     </section>
                 </div>
