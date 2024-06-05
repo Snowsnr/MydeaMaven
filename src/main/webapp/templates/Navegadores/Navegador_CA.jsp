@@ -22,16 +22,12 @@
         <div class="col-3 d-flex justify-content-evenly">
             <div class="btn-group Cuenta_des w-50" id="Cuenta_des">
                 <button type="button" class="btn btn-sm btn-secondary btn_count" id="btn_count_nav"><i
-                        class="bi bi-person-circle"></i>Cuenta</button>
+                        class="bi bi-person-circle"></i>Admin</button>
                 <button type="button"
                         class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split btn_des w-0"
                         data-bs-toggle="dropdown" aria-expanded="false">
                 </button>
                 <ul class="dropdown-menu">
-                    <li class="dropdown-item" id="btn_count2_nav">Revisar Cuenta</li>
-                    <li class="dropdown-item" id="btn_edit_nav">Editar Cuenta</li>
-                    <li class="dropdown-item" id="btn_sav2_nav">Guardados</li>
-                    <li class="dropdown-item" id="btn_res_nav">Reseñas</li>
                     <li class="dropdown-item" id="btn_admin">Acciones de Administrador</li>
                     <li>
                         <hr class="dropdown-divider">

@@ -266,6 +266,7 @@
                     <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
                     <img src="<%=pi%>" class="card-img-top img_most" alt="..." id="card-img-top">
                     <input type="text" class="dis_most_pro" value="<%=dis%>" disabled>
+                    <input type="hidden" id="id_neg_pro_most" value="" disabled>
                     <span class="card-text dis_most_pro" id="desc_com_pro"><%=pd%></span>
                 </section>
                 <%
@@ -401,6 +402,10 @@
                                 facere vitae.</span>
                             <span id="pre_pro_esp">$000000.00</span>
                             <span id="dis_pro_esp">Disponibilidad</span>
+                            <form action="" method="post">
+                                <input type="hidden" value="" disabled id="neg_id_viz">
+                                <button type="submit" id="vis_neg_btn">Visitar Negocio que lo ofrece</button>
+                            </form>
                         </section>
                     </div>
                 </div>

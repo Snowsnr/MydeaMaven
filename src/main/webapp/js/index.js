@@ -46,12 +46,14 @@ function copiarDatos(divClicado) {
     let disponibilidad = divClicado.querySelector(".dis_most_pro").value;
     let destinoDiv = document.getElementById('producto_epecifico');
     let img = divClicado.querySelector("#card-img-top").src;
+    let input = divClicado.querySelector("#id_neg_pro_most").value;
     destinoDiv.style.display = "flex";
     destinoDiv.querySelector("#npv_pro_esp").textContent = nombre;
     destinoDiv.querySelector("#pre_pro_esp").textContent = "$" + precio;
     destinoDiv.querySelector("#des_pro_esp").textContent = descripcion;
     destinoDiv.querySelector("#dis_pro_esp").textContent = disponibilidad;
     destinoDiv.querySelector("#img_pro_mosr_espe").src = img;
+    destinoDiv.querySelector("#neg_id_viz").value = input;
 }
 
 

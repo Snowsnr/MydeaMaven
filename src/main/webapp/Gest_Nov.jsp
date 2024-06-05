@@ -29,67 +29,62 @@
                 <div class="fltr_tickets" id="fltr_tickets">
                     <section class="busq_admin_acc">
                         <input class="form-control bus_admin_acc" id="bus_admin_acc" type="text"
-                               placeholder="Buscar Usuario">
+                               placeholder="Buscar Novedades">
                         <i class="bi bi-search text-white"></i>
-                    </section>
-                    <section class="opt_admin" id="opt_usu">
-                        <button id="">Usuarios</button>
-                        <button id="">Vendedores</button>
-                        <button id="">Cualquiera</button>
                     </section>
                     <section class="opt_admin">
                         <select class="select_adm" id="filtr_est">
                             <option selected disabled hidden>Filtrar por Estado</option>
-                            <option value="true">Usuario Activo</option>
+                            <option value="true">Novedad Activa</option>
                             <option value="false">De Baja</option>
                             <option value="General">Cualquiera</option>
                         </select>
                     </section>
                 </div>
             </div>
-            <div class="tickets_container" id="nov_container_admin">
-                 <%
-                        Conexion con;
-                        Connection c;
-                        Statement stmt;
-                        ResultSet rs;
-                
-                               con = new Conexion();
-                        con.setCon();
-                        c = con.getCon();
-                        stmt = c.createStatement();
-                        rs = stmt.executeQuery("Select * from Novedad;");
-                        if (rs != null)
-                        {
-                            while (rs.next()) {
+            <div class="tickets_container container_admin" id="nov_container_admin">
+                <%                     Conexion con;
+                    Connection c;
+                    Statement stmt;
+                    ResultSet rs;
 
-                                String nombre = rs.getString("nov_nombre");
-                                String descripcion = rs.getString("nov_descripcion");
-                                String foto = rs.getString("nov_foto");
-                                Boolean activo = rs.getBoolean("nov_activo");
-                                int idn = rs.getInt("nov_id");
-                 %>
+                    con = new Conexion();
+                    con.setCon();
+                    c = con.getCon();
+                    stmt = c.createStatement();
+                    rs = stmt.executeQuery("Select * from Novedad;");
+                    if (rs != null) {
+                        while (rs.next()) {
+
+                            String nombre = rs.getString("nov_nombre");
+                            String descripcion = rs.getString("nov_descripcion");
+                            String foto = rs.getString("nov_foto");
+                            Boolean activo = rs.getBoolean("nov_activo");
+                            int idn = rs.getInt("nov_id");
+                %>
                 <!-- Novedad -->
-                <section class="prod d-flex" id="prod1">
+                <section class="busq_result prod d-flex" id="prod1">
                     <input type="hidden" name="name" value="<%=nombre%>">
+                    <input type="hidden" name="name" value="<%=activo%>" id="inp_activo">
+                    <span class="d-none busqueda_nombre"><%=nombre%></span>
                     <img src="<%=foto%>" alt="prod" class="img_prod_cnf">
                     <section class="d-flex flex-column Prod_Lis w-75 h-100">
                         <span class="N_ProVP"><%=nombre%></span>
                         <textarea type="text" class="D_ProVP h-75" id="D_ProVP" disabled><%=descripcion%></textarea>
                         <section>
                             <%
-                            if(activo==true){
+                                if (activo == true) {
                             %>
                             <form action="EliminarNovedadA" method="post">
                                 <button class="btn_nov_list" type="submit">Dar de Baja</button>
                                 <input type="hidden" name="idn" value="<%=idn%>">
                                 <input type="hidden" name="coso" value="1">
                             </form>
-                           
+
                             <%
-                                }else{
+                            } else {
                             %>
-                             <form action="RecuperarNovedad" method="post">
+                            <form action="RecuperarNovedad" method="post">
                                 <button class="btn_edit_nov_list" type="submit">Restaurar Novedad</button>
                                 <input type="hidden" name="idn" value="<%=idn%>">
                             </form>
@@ -100,15 +95,13 @@
                     </section>
                 </section>
                 <%
-                
-                
+                        }
                     }
-}
-c.close();
+                    c.close();
                 %>
             </div>
         </div>
-                <%
+        <%
             if (request.getAttribute("mensaje") != null) {
         %>          
         <script>
@@ -129,5 +122,6 @@ c.close();
                 response.sendRedirect("index.jsp");
             }
         %>
+        <script src="js/busqueda_nombre.js"></script>
     </body>
 </html>

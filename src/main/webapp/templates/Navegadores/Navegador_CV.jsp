@@ -29,9 +29,7 @@
                     <li class="dropdown-item" id="btn_count2_nav">Revisar Cuenta</li>
                     <li class="dropdown-item" id="btn_edit_nav">Editar Cuenta</li>
                     <li class="dropdown-item" id="btn_sav2_nav">Guardados</li>
-                    <li class="dropdown-item" id="btn_res_nav">Reseñas</li>
                     <li class="dropdown-item" id="btn_neg2_nav">Mis Negocios</li>
-                    <li class="dropdown-item" id="btn_fbk_nav">Feedback</li>
                     <li class="dropdown-item" id="btn_sb_nav">Subir un Negocio</li>
                     <li>
                         <hr class="dropdown-divider">

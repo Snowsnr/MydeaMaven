@@ -220,6 +220,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 #busq_usu_adm button{
     margin-top: 0.5%;
     font-size: 0.85rem;
+    width: 100%;
+    justify-content: center;
 }
 #baja_usu{
     padding: 4%;
@@ -258,7 +260,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     justify-content: space-around;
 }
 .sect_btns_adminusu form{
-    width: 49%;
+    width: 70%;
 }
 #busq_result_com{
     width: 40%;
@@ -287,7 +289,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     display: flex;
     background: #D95538;
     color: white;
-    transform: scale(1.05);  
+    transform: scale(1.05);
 }
 #nov_container_admin #prod1{
     width: 45%;
@@ -305,4 +307,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 #neg_container_admin button:hover{
     transition: 0.2s;
     background: white;
+}
+.form_admin_nego form{
+    width: 100%;
+}
+.form_admin_nego button{
+    width: 100%;
+    justify-content: center;
+    padding: 2%;
 }
